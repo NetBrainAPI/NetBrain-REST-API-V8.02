@@ -188,7 +188,14 @@ To see the list of all REST APIs view "REST APIs Documentation".<br>
 
 ### [Change Ticket Management](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.01/tree/master/REST%20APIs%20Documentation/Change%20Management)
 1) [Binding 3rd Party Ticket with Runbook API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.01/blob/master/REST%20APIs%20Documentation/Change%20Management/_Change%20Management%20Approval%20Process%20API%20Design%20--%20Binding%20Runbook.md)<br>
-2) [Approve Change Management Request API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.01/blob/master/REST%20APIs%20Documentation/Change%20Management/_Change%20Management%20Approval%20Process%20API%20Design%20--%20Change%20state.md)<br>
+2) [Approve Change Management Request API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.01/blob/master/REST%20APIs%20Documentation/Change%20Management/_Change%20Management%20Approval%20Process%20API%20Design%20--%20Change%20state.md)
+
+### [Change Ticket Management Scheduled Task](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/tree/master/REST%20APIs%20Documentation/Change%20Management%20Scheduled%20Task%20REST%20API%20Design)
+1) [Create Change Management Scheduled Task REST API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Change%20Management%20Scheduled%20Task%20REST%20API%20Design/Create%20Change%20Management%20Scheduled%20Task%20REST%20API.md)<br>
+2) [Get Change Management Scheduled Task REST API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Change%20Management%20Scheduled%20Task%20REST%20API%20Design/Get%20Change%20Management%20Scheduled%20Task%20REST%20API.md)<br>
+3) [Update Change Management Scheduled Task REST API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Change%20Management%20Scheduled%20Task%20REST%20API%20Design/Update%20Change%20Management%20Scheduled%20Task%20REST%20API.md)<br>
+4) [Delete Change Management Scheduled Task REST API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Change%20Management%20Scheduled%20Task%20REST%20API%20Design/Delete%20Change%20Management%20Scheduled%20Task%20REST%20API.md)<br>
+
 
 ### [Tune Devices Access](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.01/tree/master/REST%20APIs%20Documentation/Tune%20Devices%20Access%20API%20Design)
 1) [Create Tune Devices Access Task ID API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.01/blob/master/REST%20APIs%20Documentation/Tune%20Devices%20Access%20API%20Design/Create%20Tune%20Devices%20Access%20Task%20ID%20API.md)<br>
