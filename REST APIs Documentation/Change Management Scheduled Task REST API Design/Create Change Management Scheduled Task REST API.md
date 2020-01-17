@@ -1,81 +1,95 @@
 
-# Change Management Approval Process API Design
+# Change Management Scheduled Task REST API Design
+
+POST /V1/CMDB/CM/Tasks/ScheduledTask
+------------------------------------
+
+Call this API to create a Scheduled Task (ST) for an APPROVED Network Change
+(NC).
+
+**Note:**
+
+-   Only 1 ST can be created on each NC. If there is an existing ST, create
+    request is not allowed.
+
+-   ST can only be added to APPROVED NC, so that ST is restricted to be created
+    on unapproved NC.
+
+-   APPROVED NC with executed ST doesn’t allow ST creation request.
+
+-   Follow NetBrain system user privileges
+
+Detail Information
+------------------
+
+>Title: Change Management Scheduled Task API
+
+>Version: 09/30/2019
+
+>API Server URL: http(s)://IP Address of NetBrain Web API
+Server/ServicesAPI/API/V1/CMDB/CM/Tasks/ScheduledTask
+
+>Authentication:
+
+| **Type**              | **In**  | **Name**             |
+|-----------------------|---------|----------------------|
+| Bearer Authentication | Headers | Authentication token |
+| Token    | String   | Authentication token, get from login API. |
 
 
-## ***POST*** /V1/CM/Approval/State
-This API call is used to set CM Runbook approval state example - approve or reject.
+Request body (\*required)
+-------------------------
 
-## Detail Information
-> **Title** : Approve a change management request<br>
+| **Name**               | **Type** | **Description**                                                                                 |
+|------------------------|----------|-------------------------------------------------------------------------------------------------|
+| Runbook_id\*           | string   | NC runbook ID                                                                                   |
+| ticket_id\*            | string   | 3rd party ITSM ticket ID.                                                                       |
+|                        |          | Note: use either runbook_id or ticket_id. If both are provided, runbook_id has higher priority. |
+| execution_time\*       | date     | ST start time                                                                                   |
+| do_not_execute_after\* | date     | ST end time                                                                                     |
 
-> **Version** : 06/26/2019<br>
+Query Parameters (\*required)
+-----------------------------
 
-> **API Server URL** : http(s)://IP address of NetBrain Web API Server/ServicesAPI/API/V1/CM/Approval/State <br>
+>No parameters required.
 
-> **Authentication** :
+Headers
+-------
 
-|**Type**|**In**|**Name**|
-|------|------|------|
-|<img width=100/>|<img width=100/>|<img width=500/>|
-|Bearer Authentication| Headers | Authentication token | 
+>Data Format Headers
 
+| **Name**     | **Type** | **Description**            |
+|--------------|----------|----------------------------|
+| Content-Type | String   | Support “application/json” |
+| Accept       | String   | Support “application/json” |
 
- ## Request body(****required***)
-|**Name**|**Type**|**Description**|
-|------|------|------|
-|<img width=100/>|<img width=100/>|<img width=500/>|
-|runbookId* | string  | ID of the Change Management Runbook  |
-|ticketId* | string  | Other vendor's ticket number  |
-|vendor* | string  | Name of the vendor  |
-|state* | integer  | 0(planning)/1(pending)/2(approved) /3(rejected) /5(archived)  |
-|ticketName | string  | Name of the ticket, for example: in ServiceNow CHG0030015 (means "number" in ServiceNow) |
-|ticketUrl | string  | The full URL of the tichet, for example: in ServiceNow: https://dev65813.service-now.com/nav_to.do?uri=%2Fincident.do%3Fsys_id%3D1ecf1235dbe2330093890d53ca9619a2%26sysparm_record_target%3Dincident%26sysparm_record_row%3D1%26sysparm_record_rows%3D67%26sysparm_record_list%3DORDERBYDESCnumber  |
+>Authorization Headers
 
-***Example***
+| **Name** | **Type** | **Description**                           |
+|----------|----------|-------------------------------------------|
+| Token    | String   | Authentication token, get from login API. |
 
-```python
-body = {
-    'vendor': 'serviceNow',
-    'ticketId': "00008",
-    'runbookId': '7652cb62-c5e6-d0a3-3f22-29972d03ad4c',
-    'ticketUrl': 'https://dev65813.service-now.com/nav_to.do?uri=%2Fincident.do%3Fsys_id%3D1ecf1235dbe2330093890d53ca9619a2%26sysparm_record_target%3Dincident%26sysparm_record_row%3D1%26sysparm_record_rows%3D67%26sysparm_record_list%3DORDERBYDESCnumber',
-    'state': 2
-}
-```
+Response
+--------
 
-## Headers
-> **Data Format Headers**
+| **Name**          | **Type** | **Description**                                |
+|-------------------|----------|------------------------------------------------|
+| scheduled_task_id | String   | ID of the created scheduled task               |
+| statusCode        | Integer  | The returned status code of executing the API. |
+| statusDescription | String   | The explanation of the status code.            |
 
-|**Name**|**Type**|**Description**|
-|------|------|------|
-|<img width=100/>|<img width=100/>|<img width=500/>|
-| Content-Type | string  | support "application/json" |
-| Accept | string  | support "application/json" |
-> **Authorization Headers**
-
-|**Name**|**Type**|**Description**|
-|------|------|------|
-|<img width=100/>|<img width=100/>|<img width=500/>|
-| token | string  | Authentication token, get from login API. |
-
-## Response
-|**Name**|**Type**|**Description**|
-|------|------|------|
-|<img width=100/>|<img width=100/>|<img width=500/>|
-|statusCode| integer | Code issued by NetBrain server indicating the execution result.  |
-|statusDescription| string | The explanation of the status code. |
-
-> ***Example***
+>***Example:***
 
 
 ```python
 {
-    'statusCode': 790200,
-    'statusDescription': 'Success.'
+    "scheduled_task_id" : "d5c5bb3c-1aad-ae2c-a591-347ede7d71a9",
+    "statusCode" : 790200,
+    "statusDescription" : "Success"
 }
 ```
 
-## Full Example:
+# Full Example
 
 
 ```python
@@ -84,38 +98,37 @@ import requests
 import time
 import urllib3
 import pprint
+#urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 import json
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-# Set the request inputs
-token = "5e372bc9-3b2e-48fc-b86b-e9c651968f85"
-nb_url = "http://192.168.28.173"
-full_url = nb_url + "/ServicesAPI/API/V1/CM/Approval/State"
-headers = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-headers["Token"] = token
+token = "87ccc8aa-6550-41cd-a54b-ae11b521a837" 
+full_url = "http://192.168.28.139/ServicesAPI/API/V1/CM/Tasks/ScheduleTask" 
+headers = {'Content-Type': 'application/json', 'Accept': 'application/json'}  
+headers['token'] = token
 
 body = {
-    'vendor': 'serviceNow',
-    'ticketId': "00008",
-    'runbookId': '7652cb62-c5e6-d0a3-3f22-29972d03ad4c',
-    'ticketUrl': 'https://dev65813.service-now.com/nav_to.do?uri=%2Fincident.do%3Fsys_id%3D1ecf1235dbe2330093890d53ca9619a2%26sysparm_record_target%3Dincident%26sysparm_record_row%3D1%26sysparm_record_rows%3D67%26sysparm_record_list%3DORDERBYDESCnumber',
-    'state': 2
+    "Runbook_id":"453ac967-12ad-f8f1-5158-648500fa67fb",
+    "ticket_id":"562d351f1b5e44502fd68774cc4bcb51",
+    "execution_time":"2020-01-17T20:06:00.000Z",
+    "do_not_execute_after":"2020-01-17T21:06:00.000Z"
 }
 
 try:
-    response = requests.post(full_url, data = json.dumps(body), headers = headers, verify = False)
+    # Do the HTTP request
+    response = requests.post(full_url, headers=headers, data = json.dumps(body), verify=False)
+    # Check for HTTP codes other than 200
     if response.status_code == 200:
-        result = response.json()
-        print (result)
+        # Decode the JSON response into a dictionary and use the data
+        js = response.json()
+        print (js)
     else:
-        print ("Ticket change management failed! - " + str(response.text))
-    
+        print ("Create CM task failed! - " + str(response.text))
 except Exception as e:
-    print (str(e)) 
+    print (str(e))
+    
 ```
-API Response:
 
-    {"runbookUrl":"http://192.168.28.173/map.html?t=823e096b-093a-10f1-1471-21a9a5ff509c&d=af4581fd-a705-4ddf-a878-fd4c6f304b96&id=378d70a2-f3e1-76c1-42fa-2bb088c1bda2&rba=9948608d-c755-d1e7-b5d1-325b917952b0","statusCode":790200,"statusDescription":"Success."}
+    {'statusCode': 790200, 'statusDescription': 'Success.'}
     
 
 # cURL Code from Postman
@@ -123,23 +136,23 @@ API Response:
 
 ```python
 curl -X POST \
-  http://192.168.28.173/ServicesAPI/API/V1/CM/Approval/State \
+  http://192.168.28.143/ServicesAPI/API/V1/CMDB/CM/Tasks/ScheduledTask \
   -H 'Accept: */*' \
+  -H 'Accept-Encoding: gzip, deflate' \
   -H 'Cache-Control: no-cache' \
   -H 'Connection: keep-alive' \
+  -H 'Content-Length: 194' \
   -H 'Content-Type: application/json' \
-  -H 'Host: 192.168.28.173' \
-  -H 'Postman-Token: 6417cc52-66ee-44b7-9718-dad31ef898b7,1c24d1d5-441a-4a1f-870e-3127a913d67c' \
-  -H 'User-Agent: PostmanRuntime/7.13.0' \
-  -H 'accept-encoding: gzip, deflate' \
+  -H 'Host: 192.168.28.143' \
+  -H 'Postman-Token: 1501a820-2ec7-4971-a668-9ee3d742da52,e47745d9-d9f3-408a-9c93-7d0429c7d293' \
+  -H 'User-Agent: PostmanRuntime/7.15.2' \
   -H 'cache-control: no-cache' \
-  -H 'content-length: 389' \
-  -H 'token: 5e372bc9-3b2e-48fc-b86b-e9c651968f85' \
+  -H 'token: ce4a589c-99d9-4a0e-abb6-5a91d424fad6' \
   -d '{
-    "vendor": "serviceNow",
-    "ticketId": "00008",
-    "runbookId": "7652cb62-c5e6-d0a3-3f22-29972d03ad4c",
-    "ticketUrl": "https://dev65813.service-now.com/nav_to.do?uri=%2Fincident.do%3Fsys_id%3D1ecf1235dbe2330093890d53ca9619a2%26sysparm_record_target%3Dincident%26sysparm_record_row%3D1%26sysparm_record_rows%3D67%26sysparm_record_list%3DORDERBYDESCnumber",
-    "state": 2
-}'
+    "Runbook_id":"d5c5bb3c-1aad-ae2c-a591-347ede7d71a9",
+    "ticket_id":"1d9e4d500fe32b4046ddc5ece1050e7e",
+    "execution_time":"2020/01/15",
+    "do_not_execute_after":"2020/01/16"
+}
+'
 ```

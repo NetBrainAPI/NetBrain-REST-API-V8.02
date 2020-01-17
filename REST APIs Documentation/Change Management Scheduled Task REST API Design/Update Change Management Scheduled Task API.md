@@ -1,29 +1,32 @@
 
 # Change Management Scheduled Task REST API Design
 
-GET /V1/CMDB/CM/Tasks/ScheduledTask
+PUT /V1/CMDB/CM/Tasks/ScheduledTask
 -----------------------------------
 
-Call this API to get a Scheduled Task (ST) of an APPROVED Network Change (NC).
+Call this API to update a Scheduled Task (ST) of an APPROVED Network Change
+(NC).
 
 Note:
 
--   ST can only be added to APPROVED NC, so that unapproved NC doesn’t have an
-    ST. Return NC status and error message in response.
+-   Use PUT method to update an ST that is on “Waiting” status.
+
+-   If an ST is on “Running” or “Executed” status, update request is not
+    allowed.
 
 -   Follow NetBrain system user privileges
 
 Detail Information
 ------------------
 
->Title: Change Management Scheduled Task API
+> Title: Change Management Scheduled Task API
 
->Version: 09/30/2019
+> Version: 09/30/2019
 
->API Server URL: http(s)://IP Address of NetBrain Web API
-Server/ServicesAPI/API/V1/CMDB/CM/Tasks/ScheduledTask/
+> API Server URL: http(s)://IP Address of NetBrain Web API
+Server/ServicesAPI/API/V1/CMDB/CM/Tasks/ScheduledTask/\<runbook_id/ticket_id\>
 
->Authentication:
+> Authentication:
 
 | **Type**              | **In**  | **Name**             |
 |-----------------------|---------|----------------------|
@@ -32,30 +35,31 @@ Server/ServicesAPI/API/V1/CMDB/CM/Tasks/ScheduledTask/
 Request body (\*required)
 -------------------------
 
->No body required.
+| **Name**               | **Type** | **Description** |
+|------------------------|----------|-----------------|
+| Runbook_id\*           | string   | NC runbook ID               |
+| ticket_id\*            | string   | 3rd party ITSM ticket ID.   |
+| execution_time\*       | date     | ST start time   |
+| do_not_execute_after\* | date     | ST end time     |
+
+***Note:*** Runbook_id and ticket_id only one should be provided by customer.
 
 Query Parameters (\*required)
 -----------------------------
 
-| **Name**               | **Type** | **Description**             |
-|------------------------|----------|-----------------------------|
-| Runbook_id\*           | string   | NC runbook ID               |
-| ticket_id\*            | string   | 3rd party ITSM ticket ID.   |
-
-***Note:*** Runbook_id and ticket_id only one should be provided by customer.
-
+> No parameters required.
 
 Headers
 -------
 
->Data Format Headers
+>  Data Format Headers
 
 | **Name**     | **Type** | **Description**            |
 |--------------|----------|----------------------------|
 | Content-Type | String   | Support “application/json” |
 | Accept       | String   | Support “application/json” |
 
->Authorization Headers
+> Authorization Headers
 
 | **Name** | **Type** | **Description**                           |
 |----------|----------|-------------------------------------------|
@@ -67,7 +71,6 @@ Response
 | **Name**              | **Type** | **Description**                                |
 |-----------------------|----------|------------------------------------------------|
 | runbook_id            | String   | NC runbook ID                                  |
-| scheduled_task_id     | String   | ID of the created scheduled task               |
 | scheduler             | String   | User name of the scheduler                     |
 | scheduled_task_status | String   | Status of the created scheduled task           |
 | execution_time        | date     | ST start time                                  |
@@ -76,13 +79,12 @@ Response
 | statusCode            | Integer  | The returned status code of executing the API. |
 | statusDescription     | String   | The explanation of the status code.            |
 
-***Example***
+> ***Example:***
 
 
 ```python
 {
     "runbook_id" : "d5c5bb3c-1aad-ae2c-a591-347ede7d71a9",
-    "scheduled_task_id" : "de7d71a9-1aad-ae2c-a591-347ed5c5bb3c",
     "scheduler" : "netbrain",
     "scheduled_task_status" : "pending",
     "execution_time" : "2020/01/15",
@@ -94,10 +96,11 @@ Response
 ```
 
 
-
-
-    {'runbook_id': ''}
-
+      File "<ipython-input-2-16544f92b52d>", line 8
+        "statusCode" : "790200",
+                     ^
+    SyntaxError: invalid syntax
+    
 
 
 # Full Example
@@ -113,47 +116,55 @@ import pprint
 import json
 
 token = "87ccc8aa-6550-41cd-a54b-ae11b521a837" 
- 
+full_url = "http://192.168.28.139/ServicesAPI/API/V1/CM/Tasks/ScheduleTask"
 headers = {'Content-Type': 'application/json', 'Accept': 'application/json'}  
 headers['token'] = token
-runbook_id = "453ac967-12ad-f8f1-5158-648500fa67fb"
-full_url = "http://192.168.28.139/ServicesAPI/API/V1/CM/Tasks/ScheduleTask/"
-param = {
-    "runbook_Id":runbook_id
+
+body = {
+    "Runbook_id":"453ac967-12ad-f8f1-5158-648500fa67fb",
+#     "ticket_id":"562d351f1b5e44502fd68774cc4bcb51",
+    "execution_time":"2020-01-17T20:06:00.000Z",
+    "do_not_execute_after":"2020-01-17T21:06:00.000Z"
 }
 
 try:
     # Do the HTTP request
-    response = requests.get(full_url, headers=headers, params = param, verify=False)
+    response = requests.put(full_url, headers=headers, data = json.dumps(body), verify=False)
     # Check for HTTP codes other than 200
     if response.status_code == 200:
         # Decode the JSON response into a dictionary and use the data
         js = response.json()
         print (js)
     else:
-        print ("Get CM task failed! - " + str(response.text))
+        print ("Update CM task failed! - " + str(response.text))
 except Exception as e:
     print (str(e))
-    
 ```
 
-    {'runbook_id': '453ac967-12ad-f8f1-5158-648500fa67fb', 'scheduled_task_id': 'c0777853-ec19-488e-b207-43c221d1a93e', 'scheduler': 'gongdai.liu', 'execution_time': '2020-01-17T20:06:00Z', 'do_not_execute_after': '2020-01-17T21:06:00Z', 'status': 'waiting', 'statusCode': 790200, 'statusDescription': 'Success.'}
+    {'statusCode': 790200, 'statusDescription': 'Success.'}
     
 
 # cURL Code from Postman
 
 
 ```python
-curl -X GET \
-  http://192.168.28.139/ServicesAPI/API/V1/CMDB/CM/Tasks/ScheduledTask/453ac967-12ad-f8f1-5158-648500fa67fb \
+curl -X PUT \
+  http://192.168.28.139/ServicesAPI/API/V1/CMDB/CM/Tasks/ScheduledTask \
   -H 'Accept: */*' \
   -H 'Accept-Encoding: gzip, deflate' \
   -H 'Cache-Control: no-cache' \
   -H 'Connection: keep-alive' \
+  -H 'Content-Length: 141' \
   -H 'Content-Type: application/json' \
   -H 'Host: 192.168.28.139' \
-  -H 'Postman-Token: ef87ecaa-beee-44f1-911f-030031433bc6,0da2ebe3-e67c-474c-8e6c-f4f49fa51678' \
+  -H 'Postman-Token: 13924834-e736-4274-a598-d36728cc3fa5,29c8b926-d190-4f37-baf7-ff2ca4ca3639' \
   -H 'User-Agent: PostmanRuntime/7.15.2' \
   -H 'cache-control: no-cache' \
-  -H 'token: 87ccc8aa-6550-41cd-a54b-ae11b521a837'
+  -H 'token: 87ccc8aa-6550-41cd-a54b-ae11b521a837' \
+  -d '{
+    "Runbook_id":"d5c5bb3c-1aad-ae2c-a591-347ede7d71a9",
+    "execution_time":"2020/01/15",
+    "do_not_execute_after":"2020/01/16"
+}
+'
 ```
