@@ -60,7 +60,7 @@ To see the list of all REST APIs view "REST APIs Documentation".<br>
 11) [Get Device Raw Data API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Devices%20Management/Get%20Device%20Data%20API.md) <br>
 
 ### [Devices Access Control](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/tree/master/REST%20APIs%20Documentation/Device%20Access%20Control)
-***Note:*** If customer want to use the following APIs, please go to the **System Management -> Advanced Settings -> Device Access Policy** then check the "Enable device access policy". <br>
+***Note:*** If customer want to use the Devices Access Control APIs, please go to the **System Management -> Advanced Settings -> Device Access Policy** then check the "Enable device access policy". <br>
 <img src="REST APIs Documentation/Device Access Control/DeviceAccessImage.JPG" /><br>
 1) [Add Device Access Policy API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Device%20Access%20Control/AddDeviceAccessPolicy%20API.md)<br>
 2) [Assign Device Access Policies to User API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Device%20Access%20Control/AssignDeviceAccessPoliciesToUser%20API.md)<br>
