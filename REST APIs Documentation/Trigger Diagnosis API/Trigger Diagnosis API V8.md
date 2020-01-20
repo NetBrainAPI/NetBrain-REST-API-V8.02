@@ -34,7 +34,7 @@ Call this API to trigger a map built by Netbrain from third part software.
 |basic_setting.stub_setting.mode | int  | Triggered Type.<br> 0: Real-Time,<br> 1: On-Demand  |
 |basic_setting.stub_setting.max_waiting_hours | int  | If wait time exceeds the int hours, then change task to On-demand mode.   |
 |map_setting | object  | Map Setting Information  |
-|map_setting.map_create_mode | int  | Create Map Mode.<br>0: Map Device and Its Neighbors.<br>1: Open Site Map of the Device.<br>2: Open Existing Map.<br>3: Map a Path.<br>4: Create an Empty Map.  |
+|map_setting.map_create_mode | int  | Create Map Mode.<br>0: Map Device and Its Neighbors.<br>1: Open Site Map of the Device.<br>2: Open Existing Map.<br>3: Map a Path.<br>4: Create an Empty Map.<br>5: Context Map Of Legacy Device<br>6: Context Map Of Cisco ACI Device<br>7: Use Qapp to Create a Map<br>9: Multi devices Create a Map |
 |map_setting.map_open_para | object  | parameters of opening exist map  |
 |map_setting.map_open_para.map_id| string  | map Id |
 |map_setting.map_open_para.site_id | string  | Site Id  |
@@ -63,6 +63,8 @@ Call this API to trigger a map built by Netbrain from third part software.
 | map_setting.map_path_para.protocol | string | protocol id |
 | map_setting.map_path_para.protocol_name | string | protocol name |
 | map_setting.map_path_para.isLiveUseBaseLineConfig | bool | whether to use live data or current baseline data during trigger API|
+| map_setting.map_path_para.routingScheme | int | path type. <br> UNICAST = 0, <br> MULTICAST = 1, <br> BROADCAST = 2, <br> ANYCAST = 3, <br> GEOCAST = 4 | 
+|map_setting.map_path_para.group|string	|Group name for Unicast calculation.|
 | map_setting.map_path_para.dataSource | object | path run data source |
 | map_setting.map_path_para.dataSource.type | int | Run Type<br>1: Live<br>2: Baseline<br>3: Range<br>4: Around |
 | map_setting.map_path_para.dataSource.recent | object | null |
