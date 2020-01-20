@@ -85,6 +85,27 @@ Call this API to trigger a map built by Netbrain from third part software.
 |map_setting.map_path_para.advancedOption.calcL3ActivePath| bool	||
 |map_setting.map_path_para.advancedOption.useCommandsWithArguments| bool	|Whether to use the commands with arguments inside.|
 |map_setting.map_path_para.advancedOption.enablePathFixup	|bool	|Whether to enable the path fixup feature.|
+
+
+| map_setting.context_map_cisco_aci_device_para | object | parameters of Cisco ACI device context map |
+| map_setting.context_map_cisco_aci_device_para.apic | object | apic parameter of Cisco ACI device |
+| map_setting.context_map_cisco_aci_device_para.device | object | device name parameter of Cisco ACI device. Note: if not set the parameter, Cisco ACI device will be set by basic_setting.device|
+| map_setting.context_map_cisco_aci_device_para.pod_id | object | pod id parameter of Cisco ACI device |
+| map_setting.context_map_cisco_aci_device_para.tenant_name | object | tenant name parameter of Cisco ACI device |
+| map_setting.context_map_cisco_aci_device_para.vrf_name | object | vrf name parameter of Cisco ACI device |
+| map_setting.context_map_cisco_aci_device_para.application_name | object | application name parameter of Cisco ACI device |
+
+
+| map_setting.map_devices_para | object | parameters of drawing multi devices in map |
+| map_setting.map_devices_para.devices | array | An array of devices name|
+| map_setting.map_devices_para.auto_link | bool | Whether need the auto link. <br>True: auto link. <br>False: not auto link |
+| map_setting.map_devices_para.auto_link_type | string | Auto link type |
+| map_setting.map_devices_para.include_neighbor | bool | Whether need device neighbor on map. <br> True: include device’s neighbors<br>
+False: no t include device’s neighbors|
+| map_setting.map_devices_para.neighbor_type | string | Topo type |
+
+
+
 | runbook_setting | object | Runbook Setting information |
 | runbook_setting.runbookPath | string | runbook path |
 | runbook_setting.runbookNodes | list | all runbook nodes |
