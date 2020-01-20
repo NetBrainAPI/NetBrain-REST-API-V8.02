@@ -2,7 +2,7 @@
 
 # Netbrain REST API Documentation
 Version 8.02<br>
-To view details about integration workflows with other platforms, view "3rd Party Software Integration Documentation". These include workflows like Trigger Diagnosis where NetBrain is triggered from ticketing and monitoring tools to generate map URLs. Integration Workflows also incliudes Single Panel of Glass where data from ticketing and monitoring tools is overalyed on NetBrain Map.<br>
+To view details about integration workflows with other platforms, view "Platform Integration Documentation". These include workflows like Trigger Diagnosis where NetBrain is triggered from ticketing and monitoring tools to generate map URLs. Integration Workflows also incliudes Single Panel of Glass where data from ticketing and monitoring tools is overalyed on NetBrain Map.<br>
 To view details about use cases which can be implemented with NetBrain REST APIs, see "Golden Use Case Templates".<br>
 To see the list of all REST APIs view "REST APIs Documentation".<br>
 
@@ -14,6 +14,11 @@ To see the list of all REST APIs view "REST APIs Documentation".<br>
 5) [Delete Device Group API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Device%20Group%20Management/Delete%20Device%20Group.md)<br>
 6) [Delete devices from Device Group API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Device%20Group%20Management/Delete%20Devices%20from%20Group.md)<br>
 7) [Get devices of Device Group API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Device%20Group%20Management/Get%20Devices%20of%20Group.md)<br>
+8) [Get Product Version API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Authentication%20and%20Authorization/Get%20Product%20Version%20API.md)<br>
+9) [Change Management Scheduled Task REST API Design](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/tree/master/REST%20APIs%20Documentation/Change%20Management%20Scheduled%20Task%20REST%20API%20Design)<br>
+10) [Event Trigger API Design](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/tree/master/REST%20APIs%20Documentation/Event%20Trigger%20API%20Design)<br>
+11) [License Node Information API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Tenants%20and%20Domains%20Management/License%20Node%20Information%20REST%20API.md)<br>
+12) [Tune Devices Access API Design](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/tree/master/REST%20APIs%20Documentation/Tune%20Devices%20Access%20API%20Design)<br>
 
 
 ## Section 1) Golden Use Case Templates
@@ -55,7 +60,7 @@ To see the list of all REST APIs view "REST APIs Documentation".<br>
 11) [Get Device Raw Data API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Devices%20Management/Get%20Device%20Data%20API.md) <br>
 
 ### [Devices Access Control](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/tree/master/REST%20APIs%20Documentation/Device%20Access%20Control)
-***Note:*** If customer want to use the following APIs, please go to the **System Management -> Advanced Settings -> Device Access Policy** then check the "Enable device access policy". <br>
+***Note:*** If customer want to use the Devices Access Control APIs, please go to the **System Management -> Advanced Settings -> Device Access Policy** then check the "Enable device access policy". <br>
 <img src="REST APIs Documentation/Device Access Control/DeviceAccessImage.JPG" /><br>
 1) [Add Device Access Policy API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Device%20Access%20Control/AddDeviceAccessPolicy%20API.md)<br>
 2) [Assign Device Access Policies to User API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Device%20Access%20Control/AssignDeviceAccessPoliciesToUser%20API.md)<br>
