@@ -163,15 +163,15 @@ To see the list of all REST APIs view "REST APIs Documentation".<br>
 5) [Get Topology Build Task Status API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.01/blob/master/REST%20APIs%20Documentation/Topology%20Management/Get%20Topology%20Build%20Task%20Status%20API.md)
 6) [Get One Ip Table API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.01/blob/master/REST%20APIs%20Documentation/Topology%20Management/Get%20One%20Ip-Table%20API.md)
 
-### [Trigger Diagnosis API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Trigger%20Diagnosis%20API/Trigger%20Diagnosis%20API%20V8%20.md)
+### [Trigger Diagnosis API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Trigger%20Diagnosis%20API/Trigger%20Diagnosis%20API%20V8.md)
 1) Map Device and Its Neighbors
 2) Open Site Map of The Device
 3) Trigger An Existing Map
 4) Map A Path
-5) [Qapp Input Variables](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.01/blob/master/REST%20APIs%20Documentation/Trigger%20Diagnosis%20API/Trigger%20API%20input%20for%20Qapp%20input%20variables.md)
-6) [DVT Input Parameters in Runbook](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.01/blob/master/REST%20APIs%20Documentation/Trigger%20Diagnosis%20API/Trigger%20DVT%20input%20parameters%20in%20runbook.md)
-7) [Create Map by Qapp](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.01/blob/master/REST%20APIs%20Documentation/Trigger%20Diagnosis%20API/Trigger%20Qapp%20Create%20Map.md)
-8) [Application Node Verification Input Variables](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.01/blob/master/REST%20APIs%20Documentation/Trigger%20Diagnosis%20API/Trigger%20input%20parameter%20for%20verify%20application%20node.md)
+5) [Qapp Input Variables](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Trigger%20Diagnosis%20API/Trigger%20API%20input%20for%20Qapp%20input%20variables.md)
+6) [DVT Input Parameters in Runbook](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Trigger%20Diagnosis%20API/Trigger%20DVT%20input%20parameters%20in%20runbook.md)
+7) [Create Map by Qapp](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Trigger%20Diagnosis%20API/Trigger%20Qapp%20Create%20Map.md)
+8) [Application Node Verification Input Variables](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Trigger%20Diagnosis%20API/Trigger%20input%20parameter%20for%20verify%20application%20node.md)
 
 ### [User Management](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.01/tree/master/REST%20APIs%20Documentation/User%20Management)
 1) [Add User API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.01/blob/master/REST%20APIs%20Documentation/User%20Management/Add%20User%20API.md)<br>
