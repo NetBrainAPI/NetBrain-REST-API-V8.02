@@ -45,8 +45,8 @@ Request body (\*required)
 | Runbook_id\*           | string   | NC runbook ID                                                                                   |
 | ticket_id\*            | string   | 3rd party ITSM ticket ID.                                                                       |
 |                        |          | Note: use either runbook_id or ticket_id. If both are provided, runbook_id has higher priority. |
-| execution_time\*       | date     | ST start time                                                                                   |
-| do_not_execute_after\* | date     | ST end time                                                                                     |
+| execution_time\*       | date     | ST start time. (input time format must follow the UTC structure: 2020-01-17T20:06:00.000Z)      |
+| do_not_execute_after\* | date     | ST end time. (input time format must follow the UTC structure: 2020-01-17T20:06:00.000Z)        |
 
 Query Parameters (\*required)
 -----------------------------
