@@ -75,6 +75,13 @@ Response
 | statusCode                         | Integer  | The returned status code of executing the API |
 | statusDescription                  | String   | The explanation of the status code            |
 
+***Note: Error Code clarification***
+| **Code** | **Message** |
+| 790200 | OK |
+| 795012 | License is expired. |
+| 793001 | System framework level error. |
+
+
 ***Example***
 
 
