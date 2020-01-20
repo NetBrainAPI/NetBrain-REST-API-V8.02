@@ -194,6 +194,9 @@ Call this API to calculate the path from endpoint A (source) to endpoint B (dest
 |advanced.calcL3ActivePath| bool	|Whether to calculate L3 active path.|
 |advanced.useCommandsWithArguments| bool	|Whether to use the commands with arguments inside.|
 |advanced.enablePathFixup	|bool	|Whether to enable the path fixup feature.|
+|routingScheme	|integer	|Scheme for routing process and with two values 0 and 1 can be selected. 0 means UNICAST, 1 means MULTICAST.|
+|group	|string	|Group name for Unicast calculation. (The group must has value when the routing scheme is 0).|
+
 
 ## Parameters(****required***)
 
