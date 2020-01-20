@@ -115,11 +115,11 @@ To see the list of all REST APIs view "REST APIs Documentation".<br>
 2) [Delete Network Settings API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.01/blob/master/REST%20APIs%20Documentation/Network%20Setting/Delete%20Network%20Settings%20API.md)<br>
 3) [Update Network Settings API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.01/blob/master/REST%20APIs%20Documentation/Network%20Setting/Update%20Network%20Settings%20API.md)
 
-### [Path Management](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.01/blob/master/REST%20APIs%20Documentation/Path%20Management/Path%20Calculation%20API.md)
-1) [Resolve Device Gateway API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.01/blob/master/REST%20APIs%20Documentation/Path%20Management/Path%20Calculation%20API.md)<br>
-2) [Calculate Path API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.01/blob/master/REST%20APIs%20Documentation/Path%20Management/Path%20Calculation%20API.md)<br>
-3) [Get Path Calculation Result API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.01/blob/master/REST%20APIs%20Documentation/Path%20Management/Path%20Calculation%20API.md)
-4) [Stop A PAth API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.01/blob/master/REST%20APIs%20Documentation/Path%20Management/Stop%20A%20Path%20API.md)
+### [Path Management](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Path%20Management/Path%20Calculation%20API.md)
+1) [Resolve Device Gateway API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Path%20Management/Path%20Calculation%20API.md)<br>
+2) [Calculate Path API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Path%20Management/Path%20Calculation%20API.md)<br>
+3) [Get Path Calculation Result API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Path%20Management/Path%20Calculation%20API.md)
+4) [Stop A PAth API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Path%20Management/Stop%20A%20Path%20API.md)
 
 ### [User Roles Management](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.01/tree/master/REST%20APIs%20Documentation/User%20Roles%20Management)
 1) [Add Role API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.01/blob/master/REST%20APIs%20Documentation/User%20Roles%20Management/Add%20Role%20API.md)<br>
