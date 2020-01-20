@@ -79,7 +79,7 @@ Response
 
 | **Code** | **Message** |
 |------------------------------------|----------|
-| 790200 | OK |
+| 790200 | Success |
 | 795012 | License is expired. |
 | 793001 | System framework level error. |
 
