@@ -1,87 +1,108 @@
-﻿
-# Tune Devices Access REST API Design
 
-## POST /V1/CMDB/TuneDevices
+# Trigger Event API Design
 
-This API call is used to start a tune devies task.
+POST /V1/CMDB/EventDriven/Events
+------------------------------------
 
-## Detail Information
+Call this API to create an event in NetBrain tiggered by third party system ticket body input.
 
->**Title:** Create Tune Devices Access Task ID API
 
->**Version:** 01/07/2020
+Detail Information
+------------------
 
->**API Server URL:** http(s)://IP Address of NetBrain Web API Server/ServicesAPI/API/V1/CMDB/TuneDevices
+>Title: Create triggered event API
 
->**Authentication:**
+>Version: 01/20/2020
 
-|**Type**|**In**|**Name**|
-|------|------|------|
-|Bearer Authentication|Headers|Authentication token|
+>API Server URL: http(s)://IP Address of NetBrain Web API
+Server/ServicesAPI/API/V1/CMDB/EventDriven/Events
+>Authentication:
 
-## Query Parameters (*required)
+| **Type**              | **In**  | **Name**             |
+|-----------------------|---------|----------------------|
+| Bearer Authentication | Headers | Authentication token |
+| Token    | String   | Authentication token, get from login API. |
 
->No request query parameter.
 
-## Request Body (*required)
+Request body (\*required)
+-------------------------
 
-|**Name**|**Type**|**Description**|
-|------|------|------|
-|IsCheckPing|	bool|	if ping the IP when tuning a device|
-|IsCheckSnmp| bool| if do snmp on the device when tuning a device|
-|IsCheckCliLogin|	bool| if check cli login when tuning a device|
-|IsCheckCliEnable|	bool|	if check enable priority when tuning a device|
-|hostnames|	list of string	|list all devices that need to be tuned, no value means all devices|
-
->***Example***
+| **Name**               | **Type** | **Description**            |
+|------------------------|----------|----------------------------|
+| ticket_body            | JSON     | The raw data of one entire ticket body from any third party ticketing system| 
+>***Example:***
 
 
 ```python
 {
-    "isCheckPing" : True,
-    "isCheckSnmp" : True,
-    "isCheckCliLogin" : True,
-    "isCheckCliEnable" : True,
-    "hostnames": ["US-BOS-SW3", "US-BOS-SW1"]
+  "parent": "",
+  "u_path_analysis_set": "",
+  "made_sla": "true",
+  "cause_by": "",
+  "watch_list": "",
+  "u_nb_task": "",
+  "upon_reject": "cancel",
+  "sys_updated_on": "2019-06-27 15:54:14",
+  "child_incidents": "0",
+  "approval_history": "",
+  "skills": "",
+  "number": "INC0011879",
+  "u_destination_port": "1234",
+  "u_source_ip_new": "1.1.1.1",
+  "resolved_by": "chris.zhao",
+  "opened_by": {
+    "link": "https://XXXXXXX.service-now.com/api/now/table/sys_user/22121da321adf",
+    "value": "232s9i2asko92asdf232322d098s"
+  },
+  "user_input": "",
+  "state": "2",
+  "knowledge": "false",
+  "active": "true"
 }
 ```
 
-## Headers
+Query Parameters (\*required)
+-----------------------------
 
->**Data Format Headers**
+>No parameters required.
 
-|**Name**|**Type**|**Description**|
-|------|------|------|
-|Content-Type|string|support "application/json"|
-|Accept|string|support "application/json"|
+Headers
+-------
 
->**Authorization Headers**
+>Data Format Headers
 
-|**Name**|**Type**|**Description**|
-|------|------|------|
-|token|string|Authentication token, get from login API.|
+| **Name**     | **Type** | **Description**            |
+|--------------|----------|----------------------------|
+| Content-Type | String   | Support “application/json” |
+| Accept       | String   | Support “application/json” |
 
-## Response
+>Authorization Headers
 
-|**Name**|**Type**|**Description**|
-|------|------|------|
-|taskId|string|tune device task ID, which can be use to query task status later on.|
-|status|bool|Status code. true for success.|
-|statusCode| integer | The returned status code of executing the API.  |
-|statusDescription| string | The explanation of the status code.  |
+| **Name** | **Type** | **Description**                           |
+|----------|----------|-------------------------------------------|
+| Token    | String   | Authentication token, get from login API. |
 
->***Example***
+Response
+--------
+
+| **Name**          | **Type** | **Description**                                |
+|-------------------|----------|------------------------------------------------|
+| nbEventId | String   | ID of the triggered NetBrain event.             |
+| statusCode        | Integer  | The returned status code of executing the API. |
+| statusDescription | String   | The explanation of the status code.            |
+
+>***Example:***
 
 
 ```python
 {
-    'taskId': '8bf5fc21-911b-4e63-8acf-e3fe0be72fc4', 
-    'status': True, 
-    'statusCode': 790200, 'statusDescription': 'Success.'
+    "nbEventId": "b3b74842-0a77-4190-bbce-9f3c9ca37817_201909",
+    "statusCode" : 790200,
+    "statusDescription" : "Success"
 }
 ```
 
-# Full Example：
+# Full Example
 
 
 ```python
@@ -93,63 +114,85 @@ import pprint
 #urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 import json
 
-token = "7962f853-2fb7-4b5f-98e1-4fd98dc2dc33" 
-nb_url = "https://integrationlab.netbraintech.com"
-# Set proper headers
-headers = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-headers["Token"] = token
+token = "087049d6-9762-43c4-b732-a519b26d6c10" 
+full_url = "http://192.168.28.139/ServicesAPI/API/V1/CMDB/EventDriven/Events" 
+headers = {'Content-Type': 'application/json', 'Accept': 'application/json'}  
+headers['token'] = token
 
-full_url = nb_url + "/ServicesAPI/API/V1/CMDB/TuneDevices"
-tunedata = {
-    "isCheckPing" : True,
-    "isCheckSnmp" : True,
-    "isCheckCliLogin" : True,
-    "isCheckCliEnable" : True,
-    "hostnames": ["US-BOS-SW3", "US-BOS-SW1"]
+ticket_body = {
+  "parent": "",
+  "u_path_analysis_set": "",
+  "made_sla": "true",
+  "cause_by": "",
+  "watch_list": "",
+  "u_nb_task": "",
+  "upon_reject": "cancel",
+  "sys_updated_on": "2019-06-27 15:54:14",
+  "child_incidents": "0",
+  "approval_history": "",
+  "skills": "",
+  "number": "INC0011879",
+  "u_destination_port": "1234",
+  "u_source_ip_new": "1.1.1.1",
+  "resolved_by": "chris.zhao",
+  "opened_by": {
+    "link": "https://XXXXXXX.service-now.com/api/now/table/sys_user/22121da321adf",
+    "value": "232s9i2asko92asdf232322d098s"
+  },
+  "user_input": "",
+  "state": "2",
+  "knowledge": "false",
+  "active": "true"
 }
 
-
 try:
-    response = requests.post(full_url, data = json.dumps(tunedata), headers = headers, verify = False)
+    # Do the HTTP request
+    response = requests.post(full_url, headers=headers, data = json.dumps(ticket_body), verify=False)
+    # Check for HTTP codes other than 200
     if response.status_code == 200:
-        result = response.json()
-        print (result)
+        # Decode the JSON response into a dictionary and use the data
+        js = response.json()
+        print (js)
     else:
-        print ("Add devices to group failed! - " + str(response.text))
-    
+        print ("Create Triggered Event failed! - " + str(response.text))
 except Exception as e:
-    print (str(e)) 
+    print (str(e))
+    
 ```
 
-    {'taskId': '7669f629-3465-4c3b-9909-8dea4d1257ab', 'status': True, 'statusCode': 790200, 'statusDescription': 'Success.'}
+    {'nbEventId': '4a193712-5d57-4269-9e3f-5030f3e96616_202001', 'statusCode': 790200, 'statusDescription': 'Success.'}
     
 
-    D:\Anaconda\lib\site-packages\urllib3\connectionpool.py:847: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-      InsecureRequestWarning)
-    
-
-# cURL Code from Postman:
+# cURL Code from Postman
 
 
 ```python
-curl -X POST \
-  https://integrationlab.netbraintech.com/ServicesAPI/API/V1/CMDB/TuneDevices \
-  -H 'Accept: */*' \
-  -H 'Accept-Encoding: gzip, deflate' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Connection: keep-alive' \
-  -H 'Content-Length: 176' \
-  -H 'Content-Type: application/json' \
-  -H 'Host: integrationlab.netbraintech.com' \
-  -H 'Postman-Token: 0874d561-a2ee-4f7c-8c3b-49c8f48ae09d,f59b389d-7e7f-471f-be82-898f05093d45' \
-  -H 'User-Agent: PostmanRuntime/7.15.2' \
-  -H 'cache-control: no-cache' \
-  -H 'token: 7962f853-2fb7-4b5f-98e1-4fd98dc2dc33' \
-  -d '{
-    "isCheckPing" : "True",
-    "isCheckSnmp" : "True",
-    "isCheckCliLogin" : "True",
-    "isCheckCliEnable" : "True",
-    "hostnames": ["US-BOS-SW3", "US-BOS-SW1"]
+curl --location --request POST 'http://192.168.28.139/ServicesAPI/API/V1/CMDB/EventDriven/Events' \
+--header 'token: 087049d6-9762-43c4-b732-a519b26d6c10' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "parent": "",
+  "u_path_analysis_set": "",
+  "made_sla": "true",
+  "cause_by": "",
+  "watch_list": "",
+  "u_nb_task": "",
+  "upon_reject": "cancel",
+  "sys_updated_on": "2019-06-27 15:54:14",
+  "child_incidents": "0",
+  "approval_history": "",
+  "skills": "",
+  "number": "INC0011879",
+  "u_destination_port": "1234",
+  "u_source_ip_new": "1.1.1.1",
+  "resolved_by": "chris.zhao",
+  "opened_by": {
+    "link": "https://XXXXXXX.service-now.com/api/now/table/sys_user/22121da321adf",
+    "value": "232s9i2asko92asdf232322d098s"
+  },
+  "user_input": "",
+  "state": "2",
+  "knowledge": "false",
+  "active": "true"
 }'
 ```

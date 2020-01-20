@@ -1,110 +1,101 @@
 
-# Tune Devices Access REST API Design
+# Trigger Event API Design
 
-## GET /V1/CMDB/TuneDevices
+GET /V1/CMDB/EventDriven/Events
+------------------------------------
 
-This API call is used to get tune task status and result
+Call this API to get an triggered event running status in NetBrain by event nbEventId.
 
-## Detail Information
 
->**Title:** Get Tune Devices Access Task Result API
+Detail Information
+------------------
 
->**Version:** 01/07/2020
+>Title: Get triggered event running status API
 
->**API Server URL:** http(s)://IP Address of NetBrain Web API Server/ServicesAPI/API/V1/CMDB/TuneDevices
+>Version: 01/20/2020
 
->**Authentication:**
+>API Server URL: http(s)://IP Address of NetBrain Web API
+Server/ServicesAPI/API/V1/CMDB/EventDriven/Events/{nbEventId}
+>Authentication:
 
-|**Type**|**In**|**Name**|
-|------|------|------|
-|Bearer Authentication|Headers|Authentication token|
+| **Type**              | **In**  | **Name**             |
+|-----------------------|---------|----------------------|
+| Bearer Authentication | Headers | Authentication token |
+| Token    | String   | Authentication token, get from login API. |
 
-## Request Body (*required)
 
->No request body.
+Request body (\*required)
+-------------------------
 
-## Query Parameters (*required)
+>No body required. 
 
-|**Name**|**Type**|**Description**|
-|------|------|------|
-|taskId|bool| The tune task id. |
-|begin| int | Begin index of data, API will return device tune result begin = "begin". |
-|count|	int | Count of returned data, API will return device tune result, the total number = "count".|
-|hostnames|	list of string	| List all devices that need to return tune result.<br> If Hostnames has value then Begin and Count are useless. <br>If Hostnmaes has no value then, we use Begin and Count to return tune results.|
+Path Parameters (\*required)
+-----------------------------
 
-## Headers
+| **Name**              | **Type**| **Description**      |
+|-----------------------|---------|----------------------|
+| nbEventId | String   | ID of the triggered NetBrain event.             |
 
->**Data Format Headers**
+Headers
+-------
 
-|**Name**|**Type**|**Description**|
-|------|------|------|
-|Content-Type|string|support "application/json"|
-|Accept|string|support "application/json"|
+>Data Format Headers
 
->**Authorization Headers**
+| **Name**     | **Type** | **Description**            |
+|--------------|----------|----------------------------|
+| Content-Type | String   | Support “application/json” |
+| Accept       | String   | Support “application/json” |
 
-|**Name**|**Type**|**Description**|
-|------|------|------|
-|token|string|Authentication token, get from login API.|
+>Authorization Headers
 
-## Response
+| **Name** | **Type** | **Description**                           |
+|----------|----------|-------------------------------------------|
+| Token    | String   | Authentication token, get from login API. |
 
-|**Name**|**Type**|**Description**|
-|------|------|------|
-|taskId	|string	|tune device task ID, which can be use to query task status later on.|
-|status	|int	|Status code. 0 for success|
-|devices|	list of object|	device tune results|
-|devices.deviceName	|string|	device name|
-|devices.log	|string	|device tune result|
-|devices.TuneState|	list of object|	tune results of a device|
-|devices.TuneState.Enable|	string	|cli enable result|
-|devices.TuneState.Hostname|	string|	hostname|
-|devices.TuneState.LiveHostname|	string	|live get hostname|
-|devices.TuneState.Login|	string|	login result|
-|devices.TuneState.MgrIntf|	string	|management interface|
-|devices.TuneState.MgrIp|	string|	management IP|
-|devices.TuneState.Model|	string	|model name|
-|devices.TuneState.NetworkServer|	string	|networkserver name|
-|devices.TuneState.Ping|	string	|ping result|
-|devices.TuneState.SnmpRo|	string	|snmpRo information|
-|devices.TuneState.TelnetSSH |	string	|telnet ssh result|
-|devices.TuneState.Vendor|	string	|vendor name|
-|statusCode| integer | The returned status code of executing the API.  |
-|statusDescription| string | The explanation of the status code.  |
+Response
+--------
 
->***Example***
+| **Name**          | **Type** | **Description**                                |
+|-------------------|----------|------------------------------------------------|
+| task  | Object   | An triggered Netbrain Event task.            |
+| task.translationStatus  | Integer   | Event status after parsed by NetBrain system.           |
+| task.translationDescription | String   | Explanation for "translationStatus".        |
+| task.taskStatus  | Integer   | The running status of the NetBrain task which triggered by third party system event.|
+| task.taskDescription  | String   | Explanation for "taskStatus".        |
+| task.mapId  | String   | Map ID of the map triggered by third party system event. |
+| task.mapName  | String   | Map name of the map triggered by third party system event.            |
+| task.mapType  | String   | Map type of the map triggered by third party system event.            |
+| task.mapUrl  | String   | Map URL of the map triggered by third party system event.            |
+| task.TaskId  | String   | Task ID of the triggered Netbrain Event task.           |
+| task.pathAppId  | String   | Path application ID tirggered by third party system event.          |
+| task.rbaId  | String   | Runbook ID of the runbook which tiggered by third party system event.            |
+| task.error  | String   | Running error of the triggered Netbrain Event task.           |
+| statusCode        | Integer  | The returned status code of executing the API. |
+| statusDescription | String   | The explanation of the status code.            |
+
+>***Example:***
 
 
 ```python
 {
-    "taskId": "8bf5fc21-911b-4e63-8acf-e3fe0be72fc4",
-    "status": 3,
-    "devices": [
-        {
-            "deviceName": "US-BOS-SW3",
-            "log": "15:44:53 Begin tune process\r\n15:44:54 Ping [10.8.1.30] via FS2(192.168.28.194); Succeeded\r\n15:44:54 Send RO = [public][version:v2c] to [10.8.1.30] via FS2(192.168.28.194); Succeeded\r\n15:44:55 Retrieving [10.8.1.30]'s Hostname ,Vendor and Model via FS2(192.168.28.194); Succeeded\r\n15:44:55 Telnet to device 10.8.1.30 via FS2(192.168.28.194)\n15:44:55 Telnet to device 10.8.1.30 successfully via FS2(192.168.28.194)\n15:44:55 Return from Device:[Username:]\n15:44:55 Sending Username:netbrain\n15:44:55 Return from Device:[Password:]\n15:44:55 Sending Password:******\n15:44:57 Return from Device:[US-BOS-SW3>]\n15:44:57 Sending \"enable\" command\n15:44:57 Return from Device:[Password:]\n15:44:57 Sending Enable Password:******\n15:44:58 Return from Device:[US-BOS-SW3#]\n15:44:58 Sending \"enable\" command\n15:44:58 Return from Device:[US-BOS-SW3#]\n15:44:58 Sending \"exit\" command\n15:44:58 Telnet to device 10.8.1.30 disconnected.\n15:44:58 End tune process\r\n",
-            "TuneState": {
-                "ping": "Succeeded",
-                "mgrIp": "10.8.1.30",
-                "mgrIntf": "Vlan101",
-                "telnetSSH": "Succeeded",
-                "login": "Succeeded",
-                "enable": "Succeeded",
-                "snmpRo": "public",
-                "hostname": "",
-                "liveHostname": "Unchanged",
-                "vendor": "Cisco",
-                "model": "3560E",
-                "networkServer": "FS2(192.168.28.194)"
-            }
-        }
-    ],
-    "statusCode": 790200,
-    "statusDescription": "Success."
+  "task": {
+    "translationStatus": 2,
+    "translationDescription": "Successfully translated the event.",
+    "taskStatus": 1,
+    "taskDescription": "Finished",
+    "mapId": "",
+    "mapName": "",
+    "mapType": "",
+    "mapUrl": "",
+    "TaskId": "",
+    "pathAppId": "",
+    "rbaId": "",
+    "error": ""
+  }
 }
 ```
 
-# Full Example:
+# Full Example
 
 
 ```python
@@ -116,55 +107,35 @@ import pprint
 #urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 import json
 
-token = "7962f853-2fb7-4b5f-98e1-4fd98dc2dc33" 
-nb_url = "https://integrationlab.netbraintech.com"
-# Set proper headers
-headers = {'Content-Type': 'application/json', 'Accept': 'application/json'}
-headers["Token"] = token
-
-taskId = '8bf5fc21-911b-4e63-8acf-e3fe0be72fc4'
-
-full_url = nb_url + "/ServicesAPI/API/V1/CMDB/TuneDevices/" 
-tuneRes = {
-    "taskId" : taskId,
-#     "Begin" : 0,
-#     "Count" : 2
-    "hostnames": ["US-BOS-SW3"]
-}
-
+token = "087049d6-9762-43c4-b732-a519b26d6c10" 
+url = "http://192.168.28.139/ServicesAPI/API/V1/CMDB/EventDriven/Events" 
+headers = {'Content-Type': 'application/json', 'Accept': 'application/json'}  
+headers['token'] = token
+nbEventId = "4a193712-5d57-4269-9e3f-5030f3e96616_202001"
+full_url = url + "/" + nbEventId
 
 try:
-    response = requests.get(full_url, params = tuneRes, headers = headers, verify = False)
+    # Do the HTTP request
+    response = requests.get(full_url, headers=headers, verify=False)
+    # Check for HTTP codes other than 200
     if response.status_code == 200:
-        result = response.json()
-        print (result)
+        # Decode the JSON response into a dictionary and use the data
+        js = response.json()
+        print (js)
     else:
-        print ("Tune devices task failed! - " + str(response.text))
-    
+        print ("Get Triggered Event failed! - " + str(response.text))
 except Exception as e:
-    print (str(e)) 
+    print (str(e))
+    
 ```
 
-    {'taskId': '8bf5fc21-911b-4e63-8acf-e3fe0be72fc4', 'status': 3, 'devices': [{'deviceName': 'US-BOS-SW3', 'log': '15:44:53 Begin tune process\r\n15:44:54 Ping [10.8.1.30] via FS2(192.168.28.194); Succeeded\r\n15:44:54 Send RO = [public][version:v2c] to [10.8.1.30] via FS2(192.168.28.194); Succeeded\r\n15:44:55 Retrieving [10.8.1.30]\'s Hostname ,Vendor and Model via FS2(192.168.28.194); Succeeded\r\n15:44:55 Telnet to device 10.8.1.30 via FS2(192.168.28.194)\n15:44:55 Telnet to device 10.8.1.30 successfully via FS2(192.168.28.194)\n15:44:55 Return from Device:[Username:]\n15:44:55 Sending Username:netbrain\n15:44:55 Return from Device:[Password:]\n15:44:55 Sending Password:******\n15:44:57 Return from Device:[US-BOS-SW3>]\n15:44:57 Sending "enable" command\n15:44:57 Return from Device:[Password:]\n15:44:57 Sending Enable Password:******\n15:44:58 Return from Device:[US-BOS-SW3#]\n15:44:58 Sending "enable" command\n15:44:58 Return from Device:[US-BOS-SW3#]\n15:44:58 Sending "exit" command\n15:44:58 Telnet to device 10.8.1.30 disconnected.\n15:44:58 End tune process\r\n', 'TuneState': {'ping': 'Succeeded', 'mgrIp': '10.8.1.30', 'mgrIntf': 'Vlan101', 'telnetSSH': 'Succeeded', 'login': 'Succeeded', 'enable': 'Succeeded', 'snmpRo': 'public', 'hostname': '', 'liveHostname': 'Unchanged', 'vendor': 'Cisco', 'model': '3560E', 'networkServer': 'FS2(192.168.28.194)'}}], 'statusCode': 790200, 'statusDescription': 'Success.'}
+    {'task': {'translationStatus': 21, 'translationDescription': 'No matched event template.', 'taskStatus': 0, 'taskDescription': 'Failed', 'mapType': 0, 'mapUrl': '', 'taskId': '4a193712-5d57-4269-9e3f-5030f3e96616_202001', 'rbaId': ''}, 'statusCode': 790200, 'statusDescription': 'Success.'}
     
 
-    D:\Anaconda\lib\site-packages\urllib3\connectionpool.py:847: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-      InsecureRequestWarning)
-    
-
-# cURL Code from Postman:
+# cURL Code from Postman
 
 
 ```python
-curl -X GET \
-  'https://integrationlab.netbraintech.com/ServicesAPI/API/V1/CMDB/TuneDevices?taskId=8bf5fc21-911b-4e63-8acf-e3fe0be72fc4&Begin=0&Count=1' \
-  -H 'Accept: */*' \
-  -H 'Accept-Encoding: gzip, deflate' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Connection: keep-alive' \
-  -H 'Host: integrationlab.netbraintech.com' \
-  -H 'Postman-Token: 0da5e0c3-a3c5-49a6-aa25-c04cd97cf612,ce1dba50-dd15-4912-96ee-3646651b7659' \
-  -H 'User-Agent: PostmanRuntime/7.15.2' \
-  -H 'cache-control: no-cache' \
-  -H 'token: 7962f853-2fb7-4b5f-98e1-4fd98dc2dc33'
+curl --location --request GET 'http://192.168.28.139/ServicesAPI/API/V1/CMDB/EventDriven/Events/0fea4709-b096-4d14-bf4b-4a9142f0aaea_202001' \
+--header 'token: 087049d6-9762-43c4-b732-a519b26d6c10'
 ```
