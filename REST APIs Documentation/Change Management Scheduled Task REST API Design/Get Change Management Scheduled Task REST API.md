@@ -76,6 +76,18 @@ Response
 | statusCode            | Integer  | The returned status code of executing the API. |
 | statusDescription     | String   | The explanation of the status code.            |
 
+***Note: Error Code clarification***
+
+| **Code** | **Message** | **Description**                                |
+|------------------------------------|----------|----------|
+| 790200 | Success | Call running successfully.|
+| 791000 | ParameterNull |runbook id or ticket id required. |
+| 791006 | NoDataInSystem. |This runbook has not existed.|
+| 798808 | InvalidStatus. |This runbook must be approved first.|
+| 794011 | OperationFailed. |Task Schedule can not be found.|
+| 793001 | InternalError. |System Exception Message.|
+| 793001 | Insufficient privilege. |You're not privileged to get the Network Change. |
+
 ***Example***
 
 
