@@ -81,15 +81,15 @@ Response
 
 ***Note: Error Code clarification***
 
-| **Code** | **Message** | **Description**                                |
+| **Code** | **Message**                                |
 |------------------------------------|----------|----------|
-| 790200 | Success | Call running successfully.|
-| 791000 | ParameterNull |runbook id or ticket id required. |
-| 791006 | NoDataInSystem. |This runbook has not existed.|
-| 798808 | InvalidStatus. |This runbook must be approved first.|
-| 794011 | Failed to update the scheduled task. |Failed to update schedule. |
-| 794011 | OperationFailed. |Task Schedule can not be found.|
-| 793001 | InternalError. |System Exception Message.|
+| 790200 | Success.|
+| 791000 | The runbook_id or ticket_id is required. |
+| 791006 | The Change Management runbook is not found. |
+| 798808 | Schedule can only be applied to approved Change Management runbook. |
+| 794011 | Failed to update schedule. |
+| 794011 | Task Schedule can not be found.|
+| 793001 | System Exception Message.|
 
 > ***Example:***
 
