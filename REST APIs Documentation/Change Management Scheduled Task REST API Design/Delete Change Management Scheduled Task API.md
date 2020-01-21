@@ -81,7 +81,7 @@ Response
 | 798808 | Schedule can only be applied to approved Change Management runbook.|
 | 798808 | Task Schedule is running now.|
 | 794011 | Failed to delete. |
-| 794011 | Scheduled task of this Change Management runbook is existed.|
+| 794011 | The scheduled task is running.|
 | 793001 | System Exception Message.|
 
 
