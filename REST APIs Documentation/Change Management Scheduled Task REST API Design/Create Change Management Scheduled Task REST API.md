@@ -78,6 +78,21 @@ Response
 | statusCode        | Integer  | The returned status code of executing the API. |
 | statusDescription | String   | The explanation of the status code.            |
 
+***Note: Error Code clarification***
+
+| **Code** | **Message** |
+|------------------------------------|----------|
+| 790200 | Success |
+| 795012 | License is expired. |
+| 793001 | System framework level error. |
+| 791000 | The runbook_id or ticket_id is required. |
+| 791006 | The Change Management runbook is not found. |
+| 798808 | Schedule can only be applied to approved Change Management runbook. |
+| 794011 | Scheduled task of this Change Management runbook is existed. |
+| 794011 | OperationFailed. |
+| 793001 | InternalError. |
+
+
 >***Example:***
 
 
