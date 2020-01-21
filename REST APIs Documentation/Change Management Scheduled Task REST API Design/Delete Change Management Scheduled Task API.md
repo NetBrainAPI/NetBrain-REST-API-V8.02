@@ -73,16 +73,16 @@ Response
 
 ***Note: Error Code clarification***
 
-| **Code** | **Message** | **Description**                                |
-|------------------------------------|----------|----------|
-| 790200 | Success | Call running successfully.
-| 791000 | ParameterNull |runbook id or ticket id required. |
-| 791006 | NoDataInSystem. |This runbook has not existed.|
-| 798808 | InvalidStatus. |This runbook must be approved first.|
-| 798808 | The scheduled task is running. |Task Schedule is running now.|
-| 794011 | Failed to delete. |Remove Job fail. |
-| 794011 | OperationFailed. |Task Schedule can not be found.|
-| 793001 | InternalError. |System Exception Message.|
+| **Code**| **Message**                                |
+|------------------------------------|----------|
+| 790200 |  Call running successfully.|
+| 791000 | runbook id or ticket id required. |
+| 791006 | The Change Management runbook is not found.|
+| 798808 | Schedule can only be applied to approved Change Management runbook.|
+| 798808 | Task Schedule is running now.|
+| 794011 | Failed to delete. |
+| 794011 | Scheduled task of this Change Management runbook is existed.|
+| 793001 | System Exception Message.|
 
 
 > ***Example***
