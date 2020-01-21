@@ -106,12 +106,6 @@ Response
 ```
 
 
-
-
-    {'runbook_id': ''}
-
-
-
 # Full Example
 
 
