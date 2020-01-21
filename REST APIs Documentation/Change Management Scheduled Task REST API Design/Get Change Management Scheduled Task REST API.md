@@ -84,7 +84,7 @@ Response
 | 791000 | The runbook_id or ticket_id is required. |
 | 791006 | The Change Management runbook is not found. |
 | 798808 | Schedule can only be applied to approved Change Management runbook.|
-| 794011 | Scheduled task of this Change Management runbook is existed. |
+| 794011 | Task Schedule can not be found. |
 | 793001 | System Exception Message.|
 | 793001 | You're not privileged to get the Network Change. |
 
