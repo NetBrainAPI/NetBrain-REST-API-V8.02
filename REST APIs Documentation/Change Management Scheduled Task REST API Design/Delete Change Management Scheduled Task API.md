@@ -70,6 +70,20 @@ Response
 | statusCode        | Integer  | The returned status code of executing the API. |
 | statusDescription | String   | The explanation of the status code.            |
 
+
+***Note: Error Code clarification***
+
+| **Code** | **Message** |
+|------------------------------------|----------|
+| 790200 | Success |
+| 791000 | ParameterNull |
+| 791006 | NoDataInSystem. |
+| 798808 | InvalidStatus. |
+| 794011 | Failed to delete. |
+| 794011 | OperationFailed. |
+| 793001 | InternalError. |
+
+
 > ***Example***
 
 
