@@ -118,8 +118,8 @@ except Exception as e: print (str(e))
 
 
 ```python
-curl --location --request GET 'https://integrationlab.netbraintech.com/ServicesAPI/API/V1/CMDB/Tenants' \
---header 'token: 3ff8fa0a-e993-41f2-afba-be59fd9c2cfe'
+curl --location --request GET 'https://integrationLab.netbraintech.com/ServicesAPI/API/V1/CMDB/Domains?tenantId=40e0032e-14e7-4fea-7d00-8fe8bd65efae' \
+--header 'token: 6a2ad6ac-c048-4794-859a-321a407f3e3f'
 ```
 
 ## Error Examples
