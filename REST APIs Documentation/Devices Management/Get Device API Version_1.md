@@ -594,6 +594,9 @@ filter1 = {
 # filter1 = {
 #     "site":"My Network\\NetBrain\\Asia\\Osaka",
 #     "vendor" : "Cisco"
+#              .
+#              .
+#              .
 # }
 
 data = {
