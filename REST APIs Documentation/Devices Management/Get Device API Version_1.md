@@ -579,6 +579,45 @@ try:
 except Exception as e:
     print (str(e)) 
 ```
+
+# Example with Filter :
+
+```python
+full_url = nb_url + "/ServicesAPI/API/V1/CMDB/Devices"
+headers = {'Content-Type': 'application/json', 'Accept': 'application/json'}
+headers["Token"]=token
+filter1 = {
+    "name":"CP-SW1"
+}
+
+#### OR ####
+# filter1 = {
+#     "site":"My Network\\NetBrain\\Asia\\Osaka",
+#     "vendor" : "Cisco"
+# }
+
+data = {
+    "version": 1,
+    "limit" : 15,
+    "fullattr" : 1,
+    "filter" : json.dumps(filter1)
+}
+
+
+try:
+    response = requests.get(full_url, params = data, headers = headers, verify = False)
+    if response.status_code == 200:
+        result = response.json()
+        print (result)
+        print (len(result["devices"]))
+    else:
+        print("Get Devices failed! - " + str(response.text))
+except Exception as e:
+    print (str(e)) 
+
+```
+
+
 # cURL Code from Postman:
 
 
