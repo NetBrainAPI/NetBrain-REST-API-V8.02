@@ -27,21 +27,22 @@ Call this API to trigger a map built by Netbrain from third part software.
 |basic_setting.triggered_by* | string  | Trigger user |
 |basic_setting.user_id | string  | User Id，Not required |
 |basic_setting.user* | string  | User Name |
-|basic_setting.device* | string  | Device Name  |
+|###|###| ***Note:*** If an external user account is being used, the "user" input value structure should be "autntication_id\\username".|
+|basic_setting.device | string  | Device Name  |
 |basic_setting.interface | string  | Interface Name，Not required  |
 |basic_setting.stub_name* | string  | Stub Name  |
 |basic_setting.stub_setting | object  | Stub Setting Information  |
 |basic_setting.stub_setting.mode | int  | Triggered Type.<br> 0: Real-Time,<br> 1: On-Demand  |
 |map_setting | object  | Map Setting Information  |
 |map_setting.map_create_mode | int  | Create Map Mode.<br>0: Map Device and Its Neighbors.<br>1: Open Site Map of the Device.<br>2: Open Existing Map.<br>3: Map a Path.<br>4: Create an Empty Map.<br>5: Context Map Of Legacy Device<br>6: Context Map Of Cisco ACI Device<br>7: Use Qapp to Create a Map<br>9: Multi devices Create a Map   |
-|  ***Note:*** the map_create_mode input value must corresponding to the predefined map stub trigger type in NetBrain UI system or "Some of the critical MapPath parameters are missing" response would be occured.|
+|###|###|  ***Note:*** the map_create_mode input value must corresponding to the predefined map stub trigger type in NetBrain UI system or "Some of the critical MapPath parameters are missing" response would be occured.|
 | map_setting.map_path_para | object | parameters of creating map by path |
-| map_setting.map_path_para.source | string | source device name |
+| map_setting.map_path_para.source* | string | source device name |
 | map_setting.map_path_para.source_gateway | string | source gateway |
 | map_setting.map_path_para.source_gateway_dev | string | source gateway device name |
 | map_setting.map_path_para.source_gateway_intf | string | source gateway interface name |
 | map_setting.map_path_para.source_port | string | source port |
-| map_setting.map_path_para.destination | string | destination device name |
+| map_setting.map_path_para.destination* | string | destination device name |
 | map_setting.map_path_para.destination_gateway | string | destination gateway | 
 | map_setting.map_path_para.destination_gateway_dev | string | destination gateway device name |
 | map_setting.map_path_para.destination_gateway_intf | string | destination gateway interface name |
