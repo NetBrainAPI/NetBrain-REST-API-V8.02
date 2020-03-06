@@ -1,4 +1,6 @@
 
+# Trigger Map API Design -- Open Empty Map
+
 ## ***POST*** /V1/Triggers/Run
 Call this API to trigger a map built by Netbrain from third part software.
 
@@ -68,7 +70,7 @@ body = {
 
 > **Data Format Headers**
 
-> |**Name**|**Type**|**Description**|
+|**Name**|**Type**|**Description**|
 |---|---|---|
 | Content-Type | string  | support "application/json" |
 | Accept | string  | support "application/json" |
