@@ -27,16 +27,17 @@ Call this API to trigger a map built by Netbrain from third part software.
 |basic_setting.triggered_by* | string  | Trigger user |
 |basic_setting.user_id | string  | User Id，Not required |
 |basic_setting.user* | string  | User Name |
-|basic_setting.device* | string  | Device Name  |
+|###|###| ***Note:*** If an external user account is being used, the "user" input value structure should be "autntication_id\\username".|
+|basic_setting.device | string  | Device Name  |
 |basic_setting.interface | string  | Interface Name，Not required  |
 |basic_setting.stub_name* | string  | Stub Name  |
 |basic_setting.stub_setting | object  | Stub Setting Information  |
 |basic_setting.stub_setting.mode | int  | Triggered Type.<br> 0: Real-Time,<br> 1: On-Demand  |
 |map_setting | object  | Map Setting Information  |
 |map_setting.map_create_mode | int  | Create Map Mode.<br>0: Map Device and Its Neighbors.<br>1: Open Site Map of the Device.<br>2: Open Existing Map.<br>3: Map a Path.<br>4: Create an Empty Map.<br>5: Context Map Of Legacy Device<br>6: Context Map Of Cisco ACI Device<br>7: Use Qapp to Create a Map<br>9: Multi devices Create a Map |
-|  ***Note:*** the map_create_mode input value must corresponding to the predefined map stub trigger type in NetBrain UI system or "Some of the critical MapPath parameters are missing" response would be occured.|
+|###|###|  ***Note:*** the map_create_mode input value must corresponding to the predefined map stub trigger type in NetBrain UI system or "Some of the critical MapPath parameters are missing" response would be occured.|
 | map_setting.map_devices_para | object | parameters of drawing multi devices in map. |
-| map_setting.map_devices_para.devices | array | An array of devices name. |
+| map_setting.map_devices_para.devices* | array | An array of devices name. |
 | map_setting.map_devices_para.auto_link | bool | Whether to use the build-in auto-link method. <br>True: auto lick <br>False: not auto link |
 | map_setting.map_devices_para.auto_link_type | string | Auto link type. <br>"L2_Topo_Type" — Layer 2 topology.<br>"L3_Topo_Type" — IPv4 Layer 3 topology.|
 | map_setting.include_neighbor | bool | Whether include the connected neighbor devices in triggered map. <br>True: include device’s neighbors. <br>False: don't include device’s neighbors. |
@@ -82,20 +83,20 @@ body = {
 
 > **Data Format Headers**
 
-> |**Name**|**Type**|**Description**|
+|**Name**|**Type**|**Description**|
 |---|---|---|
 | Content-Type | string  | support "application/json" |
 | Accept | string  | support "application/json" |
 
 > **Authorization Headers**
 
-> |**Name**|**Type**|**Description**|
+|**Name**|**Type**|**Description**|
 |---|---|---|
 | token | string  | Authentication token, get from login API. |
 
 ## Response
 
->|**Name**|**Type**|**Description**|
+|**Name**|**Type**|**Description**|
 |---|---|---|
 |mapId| string | The ID of the map which users triggered from third party sofware.  |
 |mapName| string | The name of the map. |
