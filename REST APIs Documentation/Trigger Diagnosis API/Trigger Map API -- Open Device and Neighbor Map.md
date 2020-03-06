@@ -81,7 +81,7 @@ body = {
 
 > **Data Format Headers**
 
-> |**Name**|**Type**|**Description**|
+|**Name**|**Type**|**Description**|
 |---|---|---|
 | Content-Type | string  | support "application/json" |
 | Accept | string  | support "application/json" |
