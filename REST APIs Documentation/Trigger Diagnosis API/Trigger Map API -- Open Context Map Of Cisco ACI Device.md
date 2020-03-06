@@ -27,7 +27,7 @@ Call this API to trigger a map built by Netbrain from third part software.
 |basic_setting.triggered_by* | string  | Trigger user |
 |basic_setting.user_id | string  | User Id，Not required |
 |basic_setting.user* | string  | User Name |
-|###|###| ***Note:*** If a external user account is being used, the "user" input value shoule be "autntication_id\\username".|
+|###|###| ***Note:*** If an external user account is being used, the "user" input value structure should be "autntication_id\\username".|
 |basic_setting.device | string  | Device Name  |
 |basic_setting.interface | string  | Interface Name，Not required  |
 |basic_setting.stub_name* | string  | Stub Name  |
@@ -39,7 +39,7 @@ Call this API to trigger a map built by Netbrain from third part software.
 |map_setting.context_map_cisco_aci_device_para| Object | parameters of Cisco ACI device context map. |
 |map_setting.context_map_cisco_aci_device_para.apic* | string | apic parameter of Cisco ACI device. |
 |map_setting.context_map_cisco_aci_device_para.device | string | device name parameter of Cisco ACI device. |
-| ***Note:*** if no value provided at here, legacy device will be set by basic_setting.device.|
+|###|###| ***Note:*** if no value provided at here, legacy device will be set by basic_setting.device.|
 |map_setting.context_map_cisco_aci_device_para.pod_id | string | pod id parameter of Cisco ACI device. |
 |map_setting.context_map_cisco_aci_device_para.tenant_name | string | tenant name parameter of Cisco ACI device. |
 |map_setting.context_map_cisco_aci_device_para.vrf_name | string | vrf name parameter of Cisco ACI device. |
