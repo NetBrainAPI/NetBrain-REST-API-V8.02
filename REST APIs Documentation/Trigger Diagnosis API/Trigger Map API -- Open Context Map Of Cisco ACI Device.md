@@ -37,7 +37,7 @@ Call this API to trigger a map built by Netbrain from third part software.
 |map_setting.map_create_mode* | int  | Create Map Mode.<br>0: Map Device and Its Neighbors.<br>1: Open Site Map of the Device.<br>2: Open Existing Map.<br>3: Map a Path.<br>4: Create an Empty Map.<br>5: Context Map Of Legacy Device<br>6: Context Map Of Cisco ACI Device<br>7: Use Qapp to Create a Map<br>9: Multi devices Create a Map   |
 |###|###|  ***Note:*** the map_create_mode input value must corresponding to the predefined map stub trigger type in NetBrain UI system or "Some of the critical MapPath parameters are missing" response would be occured.|
 |map_setting.context_map_cisco_aci_device_para| Object | parameters of Cisco ACI device context map. |
-|map_setting.context_map_cisco_aci_device_para.apic | string | apic parameter of Cisco ACI device. |
+|map_setting.context_map_cisco_aci_device_para.apic* | string | apic parameter of Cisco ACI device. |
 |map_setting.context_map_cisco_aci_device_para.device | string | device name parameter of Cisco ACI device. |
 | ***Note:*** if no value provided at here, legacy device will be set by basic_setting.device.|
 |map_setting.context_map_cisco_aci_device_para.pod_id | string | pod id parameter of Cisco ACI device. |
