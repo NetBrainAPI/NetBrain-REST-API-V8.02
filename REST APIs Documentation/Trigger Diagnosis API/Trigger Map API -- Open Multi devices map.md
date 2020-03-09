@@ -41,7 +41,7 @@ Call this API to trigger a map built by Netbrain from third part software.
 | map_setting.map_devices_para.auto_link | bool | Whether to use the build-in auto-link method. <br>True: auto lick <br>False: not auto link |
 | map_setting.map_devices_para.auto_link_type | string | Auto link type. <br>"L2_Topo_Type" — Layer 2 topology.<br>"L3_Topo_Type" — IPv4 Layer 3 topology.|
 | map_setting.include_neighbor | bool | Whether include the connected neighbor devices in triggered map. <br>True: include device’s neighbors. <br>False: don't include device’s neighbors. |
-| map_setting.neighbor_type | object | Neighbor device topology type.<br> "L3_Topo_Type" — IPv4 Layer 3 topology.<br> "Ipv6_L3_Topo_Type" — IPv6 Layer 3 topology.<br>"L2_Topo_Type" — Layer 2 topology.|
+| map_setting.neighbor_type | string | Neighbor device topology type.<br> "L3_Topo_Type" — IPv4 Layer 3 topology.<br> "Ipv6_L3_Topo_Type" — IPv6 Layer 3 topology.<br>"L2_Topo_Type" — Layer 2 topology.|
 
 
 ```python
