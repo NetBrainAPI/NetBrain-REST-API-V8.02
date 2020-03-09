@@ -81,7 +81,7 @@ https://developer.servicenow.com/app.do#!/lp/new_to_servicenow/app_store_learnv2
 During this script, we totally follow the workflow of trigger a netbrain daynamic map by calling trigger diagnosis API. More information please check [here](https://github.com/Gongdai/REST_API_with_Markdown/blob/master/Golden%20Use%20Case%20Templates/Calling%20Trigger%20Diagnosis%20API.md). A little differnt is we have to use Javascript in ServiceNow. Thus, we provide a Js script for ServiceNow integration.
 Same with reference in Github, we define all global variables at beginning then calling all rest APIs Js functions to get the triggered map URL, the last part is all functions we provide for Netbrain API calling.  
 
-   
+```JavaScript
 (function executeRule(current, previous /*null when async*/) {
 
     //Update the values of the following attributes to your specific API base URL, login credentials, and tenant/domain names
@@ -266,7 +266,7 @@ Same with reference in Github, we define all global variables at beginning then 
     logoutApiToken(apiTokenStr);
     
 })(current, previous);
-
+```JavaScript
 
 ### d) View triggered tasks and results. (Manually add incident to demo the trigger diagnosis)<a name="View"></a>
 1. Navigate to incident page and add new incident, and make sure the "Configuration Item" is filled.<br>
