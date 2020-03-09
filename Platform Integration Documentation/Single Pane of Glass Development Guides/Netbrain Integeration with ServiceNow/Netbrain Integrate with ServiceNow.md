@@ -266,7 +266,7 @@ Same with reference in Github, we define all global variables at beginning then 
     logoutApiToken(apiTokenStr);
     
 })(current, previous);
-```JavaScript
+```
 
 ### d) View triggered tasks and results. (Manually add incident to demo the trigger diagnosis)<a name="View"></a>
 1. Navigate to incident page and add new incident, and make sure the "Configuration Item" is filled.<br>
