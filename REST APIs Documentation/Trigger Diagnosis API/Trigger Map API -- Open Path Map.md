@@ -28,8 +28,6 @@ Call this API to trigger a map built by Netbrain from third part software.
 |basic_setting.user_id | string  | User Id，Not required |
 |basic_setting.user* | string  | User Name |
 |###|###| ***Note:*** If an external user account is being used, the "user" input value structure should be "autntication_id\\username".|
-|basic_setting.device | string  | Device Name  |
-|basic_setting.interface | string  | Interface Name，Not required  |
 |basic_setting.stub_name* | string  | Stub Name  |
 |basic_setting.stub_setting | object  | Stub Setting Information  |
 |basic_setting.stub_setting.mode | int  | Triggered Type.<br> 0: Real-Time,<br> 1: On-Demand  |
