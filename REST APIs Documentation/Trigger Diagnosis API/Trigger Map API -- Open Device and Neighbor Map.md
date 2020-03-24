@@ -53,7 +53,7 @@ body = {
         "triggered_by": "", # can not be null.
         "user_id": "",
         "user": "", # can not be null.
-        "device": "", # can not be null.
+        "device": "", 
         "interface": "",
         "stub_name": "", # can not be null.
         "stub_setting": {
@@ -62,9 +62,9 @@ body = {
         }
     },
     "map_setting": {
-        "map_create_mode": 0,
+        "map_create_mode": 0,# can not be null.
         "map_device_para": {
-            "device": "",
+            "device": "",# can not be null.
             "include_neighbor": False,
             "interfaces": [""],
             "neighbor_type": ""
