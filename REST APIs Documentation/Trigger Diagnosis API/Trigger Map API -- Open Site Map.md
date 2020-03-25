@@ -51,7 +51,7 @@ Call this API to trigger a map built by Netbrain from third part software.
         "triggered_by": "", # can not be null.
         "user_id": "",
         "user": "", # can not be null.
-        "device": "", # can not be null.
+        "device": "", 
         "interface": "",
         "stub_name": "", # can not be null.
         "stub_setting": {
@@ -62,7 +62,7 @@ Call this API to trigger a map built by Netbrain from third part software.
     "map_setting": {
         "map_create_mode": 1,
         "map_device_sitemap_para": {
-            "device": "",
+            "device": "",# can not be null.
             "duplicate_map": 
         }
     }
