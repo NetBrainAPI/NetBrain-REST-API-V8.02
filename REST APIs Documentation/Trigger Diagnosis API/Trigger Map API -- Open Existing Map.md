@@ -81,20 +81,20 @@ body = {
 
 > **Data Format Headers**
 
-> |**Name**|**Type**|**Description**|
+|**Name**|**Type**|**Description**|
 |---|---|---|
 | Content-Type | string  | support "application/json" |
 | Accept | string  | support "application/json" |
 
 > **Authorization Headers**
 
-> |**Name**|**Type**|**Description**|
+|**Name**|**Type**|**Description**|
 |---|---|---|
 | token | string  | Authentication token, get from login API. |
 
 ## Response
 
->|**Name**|**Type**|**Description**|
+|**Name**|**Type**|**Description**|
 |---|---|---|
 |mapId| string | The ID of the map which users triggered from third party sofware.  |
 |mapName| string | The name of the map. |
