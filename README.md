@@ -204,7 +204,7 @@ To see the list of all REST APIs view "REST APIs Documentation".<br>
 1) [Create Change Management Scheduled Task REST API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Change%20Management/Create%20Change%20Management%20Scheduled%20Task%20REST%20API.md)<br>
 2) [Get Change Management Scheduled Task REST API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Change%20Management/Get%20Change%20Management%20Scheduled%20Task%20REST%20API.md)<br>
 3) [Update Change Management Scheduled Task REST API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Change%20Management/Update%20Change%20Management%20Scheduled%20Task%20API.md)<br>
-4) [Delete Change Management Scheduled Task REST API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Change%20Management%20Scheduled%20Task%20REST%20API%20Design/Delete%20Change%20Management%20Scheduled%20Task%20REST%20API.md)<br>
+4) [Delete Change Management Scheduled Task REST API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Change%20Management/Delete%20Change%20Management%20Scheduled%20Task%20API.md)<br>
 
 
 ### [Tune Devices Access](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/tree/master/REST%20APIs%20Documentation/Tune%20Devices%20Access%20API%20Design)
