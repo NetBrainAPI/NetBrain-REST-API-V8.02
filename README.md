@@ -16,7 +16,7 @@ To see the list of all REST APIs view "REST APIs Documentation".<br>
 7) [Get devices of Device Group API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Device%20Group%20Management/Get%20Devices%20of%20Group.md)<br>
 8) [Get Product Version API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Authentication%20and%20Authorization/Get%20Product%20Version%20API.md)<br>
 9) [Change Management Scheduled Task REST API Design](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/tree/master/REST%20APIs%20Documentation/Change%20Management)<br>
-10) [Event Trigger API Design](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/tree/master/REST%20APIs%20Documentation/Event%20Trigger%20API%20Design)<br>
+10) [Event Trigger API Design](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/tree/master/REST%20APIs%20Documentation/Event%20Driven%20Trigger)<br>
 11) [License Node Information API](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Tenants%20and%20Domains%20Management/License%20Node%20Information%20REST%20API.md)<br>
 12) [Tune Devices Access API Design](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/tree/master/REST%20APIs%20Documentation/Tune%20Devices%20Access%20API%20Design)<br>
 
