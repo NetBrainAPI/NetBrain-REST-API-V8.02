@@ -1,7 +1,7 @@
 
 # Module API Design
 
-## ***GET*** /V1/CMDB/Modules/Attributes{?hostname}&{?attributeName}&{?moduleName}
+## ***GET*** /V1/CMDB/Modules/Attributes
 Call this API to get the value for a specified attribute of a device interface, get all attributes if the attribute name is not specifed.
 
 ## Detail Information
