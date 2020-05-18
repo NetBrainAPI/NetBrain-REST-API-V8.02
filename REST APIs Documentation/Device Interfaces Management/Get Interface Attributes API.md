@@ -1,7 +1,7 @@
 
 # Interface API Design
 
-## ***GET*** /V1/CMDB/Interfaces/Attributes/{?hostname}&{?interfaceName}&{?attributeName}&{?interfaceType}
+## ***GET*** /V1/CMDB/Interfaces/Attributes
 Call this API to get the value for a specified attribute of a device interface, get all attributes if the attribute name is not specifed.
 
 ## Detail Information
