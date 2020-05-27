@@ -1,7 +1,8 @@
 
 # Device API Design
 
-## ***GET*** /V1/CMDB/Devices/Attributes/{?hostname}/{?attributeName}
+## ***GET*** /V1/CMDB/Devices/Attributes
+
 Call this API to get the value for an attribute of a device, get all attributes if attribute name is not specifed.
 
 ## Detail Information
