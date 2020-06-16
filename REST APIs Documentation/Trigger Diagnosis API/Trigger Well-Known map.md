@@ -29,7 +29,7 @@ task_parameter = {
     },
     "search_well_known_map_setting": {
         "folder": "Public/Well Known Map/Oracle DB",
-        "map_count": 5, // allow up to five well-known maps return
+        "map_count": 10, // allow up to ten well-known maps to be returned.
         "execute_runbook": true, // whether executing runbook on matched maps
         "duplicate_map": false
     }
