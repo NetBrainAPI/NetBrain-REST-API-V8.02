@@ -196,14 +196,14 @@ API Response:
 
 ## Step 3: Create site for devices modification
 ***3a. call create_site API***
->After we create the transaction for sites modification, we are going to create a site as beginning using create site API. If users want to get more details about this API or get errors when calling this API please check the API documentation on Github_create_site
+>After we create the transaction for sites modification, we are going to create a site as beginning using create site API. If users want to get more details about this API or get errors when calling this API please check the API documentation on [Github_create_site](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Site%20Management/Create%20Site%20API.md)
 >>Note that<br>
 >>a) a new site will be created as a parent site if a site doesn't have its parent site in current system.<br>
 >>b) this API will replace the ImportSiteTree in 7.0b.<br>
 >>c) this API call needs to be invoked in a site transaction.
 
 ***3b. call create_a_leaf_site API***
->As shown in previous step, we have created two sites which as parent sites. Now we calling this API to create a container site. If one parent site doesn't exist in current system, create it before create its child site. If users want to get more details about this API or get errors when calling this API please check the API documentation on Github_create_leaf_site
+>As shown in previous step, we have created two sites which as parent sites. Now we calling this API to create a container site. If one parent site doesn't exist in current system, create it before create its child site. If users want to get more details about this API or get errors when calling this API please check the API documentation on [Github_create_leaf_site](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Site%20Management/Create%20A%20Leaf%20Site%20API.md)
 
 
 ```python
