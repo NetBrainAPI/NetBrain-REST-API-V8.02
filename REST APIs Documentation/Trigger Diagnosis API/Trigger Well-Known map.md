@@ -25,7 +25,7 @@ task_parameter = {
         "triggered_by": "admin",
         "user": "admin",
         "device": "BJ-R1",
-        "stub_name": "Default-Search Well Known Map" // this field is hard coded
+        "stub_name": "Default_Search Well Known Map" // this field is hard coded
     },
     "search_well_known_map_setting": {
         "folder": "Public/Well Known Map/Oracle DB",
