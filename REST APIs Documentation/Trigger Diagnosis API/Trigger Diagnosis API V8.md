@@ -1,5 +1,5 @@
 
-# Trigger Map API Design
+# Trigger API
 
 ## ***POST*** /V1/Triggers/Run
 Call this API to trigger a NetBrain automation task of map and runbook for diagnosis automation.
