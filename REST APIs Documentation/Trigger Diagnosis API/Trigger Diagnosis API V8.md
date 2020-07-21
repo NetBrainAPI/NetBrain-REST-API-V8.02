@@ -2,7 +2,7 @@
 # Trigger Map API Design
 
 ## ***POST*** /V1/Triggers/Run
-Call this API to trigger a map built by Netbrain from third part software.
+Call this API to trigger a NetBrain automation task of map and runbook for diagnosis automation.
 
 ## Detail Information
 
