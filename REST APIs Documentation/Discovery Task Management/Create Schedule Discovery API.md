@@ -27,7 +27,7 @@ Note that, as the key, task name should be unique system wide.
 |------|------|------|
 |<img width=100/>|<img width=100/>|<img width=500/>|
 |taskName* | string  | The name of the task.  |
-|newTaskName* | string  | The new name of the task.  |
+|newTaskName | string  | The new name of the task.  |
 |description | string  | The description of the task. This field is optional.  |
 |startDate* | string  | The date when the task starts to run. The standard time format is required, for example, '2017-07-13', '2017/07/13'. Current date will be used by default.  |
 |endDate* | string  | The date when the task end to run. The standard time format is required, for example, '2017-07-13', '2017/07/13'.  |
