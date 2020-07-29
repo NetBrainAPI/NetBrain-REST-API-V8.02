@@ -112,7 +112,7 @@ repeat this section for each of the Front Servers.
 
 >   **API Source Type:** *“Cisco SNTC API Adaptor”*
 
->   **Endpoint:** *Cisco SNTC instance endpoint (ex “http://192.168.31.99”)*
+>   **Endpoint:** *Cisco SNTC EOX Data retriving endpoint (ex “https://api.cisco.com/supporttools/eox/rest/5/EOXBySerialNumber/1/”)*
 
 >   **Username:** *Cisco SNTC guest account’s username*
 
