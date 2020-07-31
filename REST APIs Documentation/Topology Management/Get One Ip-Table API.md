@@ -2,8 +2,7 @@
 # One Ip Table API Design
 
 ## ***GET*** /V1/CMDB/Topology/OneIPTable{?Ip}&{?beginIndex}&{?count}
-Calling this API to get the One-IP Table.
-***Note:*** One-IP table records the physical connectivity of an L2 network. One-IP table is generated based on ARP and MAC tables when the system builds Layer 2 topology. You can use One-IP table to troubleshoot L2 connectivity issues and locate abnormal IP traffics.<br>
+Calling this API to get the One-IP Table. ***One-IP table records the physical connectivity of an L2 network. One-IP table is generated based on ARP and MAC tables when the system builds Layer 2 topology. You can use One-IP table to troubleshoot L2 connectivity issues and locate abnormal IP traffics.***<br>
 
 If user provide an input value of "ip" attribute, then this API will return all items which have the same ip address in One-IP Table;
 
