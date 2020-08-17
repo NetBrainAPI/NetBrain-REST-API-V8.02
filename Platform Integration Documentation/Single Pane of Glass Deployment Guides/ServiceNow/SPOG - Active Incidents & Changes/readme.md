@@ -15,6 +15,13 @@ to NetBrain dynamic maps based on device. Network engineers can check potential
 affective incidents and changes during troubleshooting process, for Change
 Management purposes, and for documentation purposes.
 
+With this integration, NetBrain can overlay the following extended information as attributes. Device level:
+
+1. Number of Incidents
+2. Table of incident details (incident number, short description, description, caller, business service name, sys created time, state, impact, priority, urgency, assigned engineer, priority, assignment group name, parent incident number, parent incident short description, parent incident CI name)
+3. Number of Change Requests
+4. Table of change request details (number, state, requested_by.name, category, priority, risk, impact, short_description, description, type, on_hold, assignment_group.name, assigned_to.name, start_date, end_date, work_start, work_end, sys_created_on, sys_id)
+
 Hyperlink of each ticket is available for users to quickly navigate to
 ServiceNow ticket instance.
 
@@ -29,10 +36,10 @@ Pre-requisites
 Application Version
 -------------------
 
-| Application | Version          |
-|-------------|------------------|
-| NetBrain    | IEv8.0 and above |
-| ServiceNow  | Madrid, New York |
+| Application | Version                    |
+|-------------|----------------------------|
+| NetBrain    | IEv8.0 and above           |
+| ServiceNow  | Madrid, New York, Helsinki |
 
 Network Connectivity
 --------------------
