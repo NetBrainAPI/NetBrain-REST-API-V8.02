@@ -1,7 +1,7 @@
 
 # Device API Design
 
-## ***GET*** /V1/CMDB/Devices/decive/FrontServer{?hostname}
+## ***GET*** /V1/CMDB/Devices/device/FrontServer{?hostname}
 Call this API to set a value for the specified attriute of a device.
 
 * ## Detail Information
