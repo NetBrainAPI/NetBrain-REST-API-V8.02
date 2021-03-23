@@ -32,7 +32,6 @@ Call this API to delete a device in current domain.
 |IPs* | list of string  | Management ip list of the target devices. Optional, IPs and hostnames must have at least one member. |
 |hostnames* | list of string  | Hostname list of the target devices. Optional, IPs and hostnames must have at least one member. |
 
-
 ## Headers
 
 > **Data Format Headers**

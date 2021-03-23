@@ -1,7 +1,7 @@
 
 # Module API Design
 
-## ***GET*** /V1/CMDB/Modules/Attributes{?hostname}&{?attributeName}&{?moduleName}
+## ***GET*** /V1/CMDB/Modules/Attributes
 Call this API to get the value for a specified attribute of a device interface, get all attributes if the attribute name is not specifed.
 
 ## Detail Information
@@ -114,7 +114,7 @@ except Exception as e:
     print (str(e))  
 ```
 
-    Get module attributes failed! - {"statusCode":793001,"statusDescription":"Inner exception. please check system log(default location: log/NgThirdAPI.log)"}
+    {'hostname': 'R1', 'attributes': {'Slot3': {'name': 'Slot3', 'type': 'N55-DL2', 'ports': '0', 'sn': 'FOC173407XR', 'hwrev': '1.0', 'fwrev': '', 'swrev': '7.0(7)N1(1)', 'descr': ''}}, 'statusCode': 790200, 'statusDescription': 'Success.'}
     
 
 # cURL Code from Postman

@@ -2,11 +2,11 @@
 # One Ip Table API Design
 
 ## ***GET*** /V1/CMDB/Topology/OneIPTable{?Ip}&{?beginIndex}&{?count}
-Calling this API to get the One-IP Table.
+Calling this API to get the One-IP Table. ***One-IP table records the physical connectivity of an L2 network. One-IP table is generated based on ARP and MAC tables when the system builds Layer 2 topology. You can use One-IP table to troubleshoot L2 connectivity issues and locate abnormal IP traffics.***<br>
 
 If user provide an input value of "ip" attribute, then this API will return all items which have the same ip address in One-IP Table;
 
-If user set "IP = null" or " IP = "" " but provide the input values of "beginIndex" and "count", API will return One-IP Table with items number equal to "count" values start from "beginIndex". But notice that the default maximum value of "count" is 1000. So if the input value of "count" greater than 1000, API will only return 1000 itmes. And if start from beginIndex to the end of table, there are no enough count items, API will return the rest of items.
+If user set "IP = null" or " IP = "" " but provide the input values of "beginIndex" and "count", API will return One-IP Table with items number equal to "count" values start from "beginIndex". But notice that the default maximum value of "count" is 100000. So if the input value of "count" greater than 100000, API will only return 100000 itmes. And if start from beginIndex to the end of table, there are no enough count items, API will return the rest of items.
 
 >**Note:** The One-IP table records the physical connections for all IP addresses in your workspace. It is retrieved during the Layer 2 topology discovery. You can use the One-IP table to troubleshoot any Layer 2 connection issues.
 
@@ -40,8 +40,8 @@ If user set "IP = null" or " IP = "" " but provide the input values of "beginInd
 |switch_name|string|The switch name connected to the end system.If user provide an input value of “switch_name” attribute, then this API will return all items which have the same switch name in One-IP Table;|
 |switch_port|string|The [fullname](https://www.netbraintech.com/docs/ie71/help/index.html?interface-name-translation.htm) of switchport to connected to end system or the device interface configured with this IP address. This is not a independent attribute, to use this attribute, 'switch_name' is necessary.|
 |dns|string|The resolved DNS name of the end system, or the combination of the device name and interface name. If the DNS name is not resolved, it is null.|
-| beginIndex* | int  | Begin index of data, API will return OneIP Table items start from "beginIndex". |
-| count* | int  | Count number of returned data, API will return OneIP Table items, the total number of items is the value of "count". Maximum "count" value is 10000. So API will only return 10000 itmes even users set the input value of "count" greater than 10000. If the total number of items which start from "beginIndex" to the end of table are less than "count" value, API will return the rest of items.<br> ***Note:*** If customer insert the beginindex as 1 and count as 10002 which meands the total number will greater than 10000. Then customer would get an error and without any result returned. |
+| beginIndex | int  | Begin index of data, API will return OneIP Table items start from "beginIndex". |
+| count | int  | Count number of returned data, API will return OneIP Table items, the total number of items is the value of "count". Maximum "count" value is 10000. So API will only return 10000 itmes even users set the input value of "count" greater than 10000. If the total number of items which start from "beginIndex" to the end of table are less than "count" value, API will return the rest of items.<br> ***Note:*** If customer insert the beginindex as 1 and count as 10002 which meands the total number will greater than 10000. Then customer would get an error and without any result returned. |
 
 ## Headers
 

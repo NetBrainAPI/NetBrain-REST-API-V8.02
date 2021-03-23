@@ -6,7 +6,7 @@ Call this API to trigger a map built by Netbrain from third part software.
 
 ## Detail Information
 
-> **Title** : Trigger Map And Path API<br>
+> **Title** : Trigger device neighbor map API<br>
 
 > **Version** : 02/08/2019.
 

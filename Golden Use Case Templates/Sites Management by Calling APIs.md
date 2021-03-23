@@ -30,10 +30,10 @@ In this use case, we totally concern 11 APIs, as shown below:
 > Note: If users try to use this code. please remember to change the "nb_url" to users' own working url.
 
 ***1b. call login API***
->In step 1, we calling the login API with "username" and "password" as inputs. As response we can get the authentication token as one fixed input in following APIs calling. If users get errors when calling this API please check the API documentation on [Github_login](https://github.com/Gongdai/Netbrain_REST_API_First_Regularization/blob/master/Netbrain_REST_API/API_test/STANDARD_formate_TEST1_LOGIN_API.ipynb) 
+>In step 1, we calling the login API with "username" and "password" as inputs. As response we can get the authentication token as one fixed input in following APIs calling. If users get errors when calling this API please check the API documentation on [Github_login](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Authentication%20and%20Authorization/Login%20API.md) 
 
 ***1c. call specify_a_working_domain API***
->After we running this step successfully, we directly complete the full login processes which means we totally join in Netbrain System by calling APIs(because we have record our tenantId and domainId，if users don't know the ID of corresponding tenant and domain please fully follow step 1 to step 4 in use case 1). Next step, we will start to use Netbrain functions formally. If users want to get more details about this API or get errors when calling this API please check the API documentation on [Github_domain](https://github.com/Gongdai/Netbrain_REST_API_First_Regularization/blob/master/Netbrain_REST_API/API_test/STANDARD_formate_Specify_a_domain_to_work_on_API_Test1%20.ipynb) 
+>After we running this step successfully, we directly complete the full login processes which means we totally join in Netbrain System by calling APIs(because we have record our tenantId and domainId，if users don't know the ID of corresponding tenant and domain please fully follow step 1 to step 4 in use case 1). Next step, we will start to use Netbrain functions formally. If users want to get more details about this API or get errors when calling this API please check the API documentation on [Github_Specify_Domain](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Authentication%20and%20Authorization/Specify%20A%20Working%20Domain%20API.md) 
 
 
 ```python
@@ -133,12 +133,12 @@ API Response:
 
 >Deleting a transaction could let the user to discard any site change operations since the beginning of a transaction, or called rollback.
 
->If users want to get more details about this API or get errors when calling this API please check the API documentation on[Github_site_transaction](https://github.com/Gongdai/Netbrain_REST_API_First_Regularization/blob/master/Netbrain_REST_API/API_test/Site%20API%20Design/STANDARD_formate_Create_a_Site_Transaction_API_Test.ipynb)
+>If users want to get more details about this API or get errors when calling this API please check the API documentation on[Github_site_transaction](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Site%20Management/Create%20A%20Site%20Transaction%20API.md)
 
 ***2b. call site_transaction_heartbeat API***
 >This API send a hearbeat signal to the server to keep a transaction alive.
 
->Failed to do so will cause transaction being disgarded by the system if no other site change operations sent to the server via the current session with the next 30 seconds.If users want to get more details about this API or get errors when calling this API please check the API documentation on[Github_site_transaction_heartbeat](https://github.com/Gongdai/Netbrain_REST_API_First_Regularization/blob/master/Netbrain_REST_API/API_test/Site%20API%20Design/STANDARD_formate_Site_Transaction_Heartbeat_API_Test.ipynb)
+>Failed to do so will cause transaction being disgarded by the system if no other site change operations sent to the server via the current session with the next 30 seconds.If users want to get more details about this API or get errors when calling this API please check the API documentation on[Github_site_transaction_heartbeat](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Site%20Management/Site%20Transaction%20Heartbeat%20API.md)
 
 
 ```python
@@ -153,7 +153,7 @@ def create_a_transaction(create_a_transaction_URL, headers, token):
             result = response.json()
             print (result)
         else:
-            print ("Get User Report failed! - " + str(response.text))
+            print ("Create transaction failed! - " + str(response.text))
 
     except Exception as e:
         print (str(e)) 
@@ -181,7 +181,7 @@ def site_transaction_heartbeat(headers, token):
             result = response.json()
             print (result)
         else:
-            print ("Get User Report failed! - " + str(response.text))
+            print ("Set site transaction heartbeat failed! - " + str(response.text))
 
     except Exception as e:
         print (str(e))
@@ -196,14 +196,14 @@ API Response:
 
 ## Step 3: Create site for devices modification
 ***3a. call create_site API***
->After we create the transaction for sites modification, we are going to create a site as beginning using create site API. If users want to get more details about this API or get errors when calling this API please check the API documentation on Github_create_site
+>After we create the transaction for sites modification, we are going to create a site as beginning using create site API. If users want to get more details about this API or get errors when calling this API please check the API documentation on [Github_create_site](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Site%20Management/Create%20Site%20API.md)
 >>Note that<br>
 >>a) a new site will be created as a parent site if a site doesn't have its parent site in current system.<br>
 >>b) this API will replace the ImportSiteTree in 7.0b.<br>
 >>c) this API call needs to be invoked in a site transaction.
 
 ***3b. call create_a_leaf_site API***
->As shown in previous step, we have created two sites which as parent sites. Now we calling this API to create a container site. If one parent site doesn't exist in current system, create it before create its child site. If users want to get more details about this API or get errors when calling this API please check the API documentation on Github_create_leaf_site
+>As shown in previous step, we have created two sites which as parent sites. Now we calling this API to create a container site. If one parent site doesn't exist in current system, create it before create its child site. If users want to get more details about this API or get errors when calling this API please check the API documentation on [Github_create_leaf_site](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Site%20Management/Create%20A%20Leaf%20Site%20API.md)
 
 
 ```python
@@ -281,15 +281,15 @@ API Response:
 
 ## Step 4: Modify devices in site
 ***4a. call add_site_device API***
->After we completely created all sites we need, during this step we will start to import devices into our sites. To implete this feature by calling this API to add devices to the site which specified by site path or Id. All devices will be marked as manually added type. If users want to get more details about this API or get errors when calling this API please check the API documentation on [Github_add_site_devices](https://github.com/Gongdai/Netbrain_REST_API_First_Regularization/blob/master/Netbrain_REST_API/API_test/Site%20API%20Design/STANDARD_formate_Add_Site_Devices_API_Test.ipynb)  
+>After we completely created all sites we need, during this step we will start to import devices into our sites. To implete this feature by calling this API to add devices to the site which specified by site path or Id. All devices will be marked as manually added type. If users want to get more details about this API or get errors when calling this API please check the API documentation on [Github_add_site_devices](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Site%20Management/Add%20Site%20Devices%20API.md)  
 
 >And we will add two devices lists to two created sites respectively. In this sub-step, we totally concern two parts, first part we add four devices in site with site path: "My Network/America/Burlington/Netbrain", second part we also add four devices (which are different with first part) to another site with site path: "My Network/America".
 
 ***4b. call get_site_devices API***
->After we running previous sub-step successfully, in order to confirm we added the devices correctly to each site, we wish to call this API to output the detail information of each site. Calling this API to get all devices belong to the site specified by site name. Note that the siteID must be a leaf site ID, error would return if the parameter is root site or a container site. If users want to get more details about this API or get errors when calling this API please check the API documentation on [Github_get_site_devices](https://github.com/Gongdai/Netbrain_REST_API_First_Regularization/blob/master/Netbrain_REST_API/API_test/Site%20API%20Design/STANDARD_formate_Get_Site_Devices_API_Test.ipynb)  
+>After we running previous sub-step successfully, in order to confirm we added the devices correctly to each site, we wish to call this API to output the detail information of each site. Calling this API to get all devices belong to the site specified by site name. Note that the siteID must be a leaf site ID, error would return if the parameter is root site or a container site. If users want to get more details about this API or get errors when calling this API please check the API documentation on [Github_get_site_devices](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Site%20Management/Get%20Site%20Devices%20API.md)  
 
 ***4c. call replace_site_devices API***
->In this step we focus on change the devices group in one site, calling this API to remove all existing devices from the site which specified by site name or site Id and add new devices provided in the devices parameter at meanwhile. If users want to get more details about this API or get errors when calling this API please check the API documentation on [Github_replace_site_devices](https://github.com/Gongdai/Netbrain_REST_API_First_Regularization/blob/master/Netbrain_REST_API/API_test/Site%20API%20Design/STANDARD_formate_Replace_Site_Devices_API_Test.ipynb)  
+>In this step we focus on change the devices group in one site, calling this API to remove all existing devices from the site which specified by site name or site Id and add new devices provided in the devices parameter at meanwhile. If users want to get more details about this API or get errors when calling this API please check the API documentation on [Github_replace_site_devices](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Site%20Management/Replace%20Site%20Devices%20API.md)  
 
 
 ```python
@@ -435,7 +435,7 @@ API Response:
     
 
 ## Step 5: Implement all modifications to system
->Actually this step should be considered the final step of the whole use case. For all previous steps, we were modify system sites architecture but all can be seen as pending process. If we want to update all changing to whole structure, we have to commit site transactions. In other word, everytime users create a transaction to modify sites, in the end the commit site transaction API must be called to update the entire workflow. If users want to get more details about this API or get errors when calling this API please check the API documentation on [Github_commit_transaction](https://github.com/Gongdai/Netbrain_REST_API_First_Regularization/blob/master/Netbrain_REST_API/API_test/Site%20API%20Design/STANDARD_formate_Commit_Site_Transaction_API_Test.ipynb)
+>Actually this step should be considered the final step of the whole use case. For all previous steps, we were modify system sites architecture but all can be seen as pending process. If we want to update all changing to whole structure, we have to commit site transactions. In other word, everytime users create a transaction to modify sites, in the end the commit site transaction API must be called to update the entire workflow. If users want to get more details about this API or get errors when calling this API please check the API documentation on [Github_commit_transaction](https://github.com/NetBrainAPI/NetBrain-REST-API-V8.02/blob/master/REST%20APIs%20Documentation/Site%20Management/Commit%20Site%20Transaction%20API.md)
 
 
 ```python
@@ -445,10 +445,10 @@ body = {"rebuildSite" : rebuildSite}
 
 commit_Site_Transaction_URL = nb_url + "/ServicesAPI/API/V1/CMDB/Sites/Transactions"
 
-def commit_Site_Transaction(commit_Site_Transactio_URL, headers, token, rebuildSite):
+def commit_Site_Transaction(commit_Site_Transaction_URL, headers, token, rebuildSite):
     headers["Token"] = token
     try:
-        response = requests.put(commit_Site_Transactio_URL, data = json.dumps(body), headers = headers, verify = False)
+        response = requests.put(commit_Site_Transaction_URL, data = json.dumps(body), headers = headers, verify = False)
         if response.status_code == 200:
             result = response.json()
             print (result)
@@ -458,7 +458,7 @@ def commit_Site_Transaction(commit_Site_Transactio_URL, headers, token, rebuildS
     except Exception as e:
         print (str(e))
         
-result = commit_Site_Transactio(commit_Site_Transactio_URL, headers, token, rebuildSite)
+result = commit_Site_Transactio(commit_Site_Transaction_URL, headers, token, rebuildSite)
 result
 ```
 API Response: 
@@ -500,52 +500,4 @@ API Response:
 
 
 
-# Referance:
-> 1) login API:
 
->https://github.com/Gongdai/Netbrain_REST_API_First_Regularization/blob/master/Netbrain_REST_API/API_test/STANDARD_formate_TEST1_LOGIN_API.ipynb<br> 
-
-> 2) specify_a_working_domain API: 
-
->https://github.com/Gongdai/Netbrain_REST_API_First_Regularization/blob/master/Netbrain_REST_API/API_test/STANDARD_formate_Specify_a_domain_to_work_on_API_Test1%20.ipynb<br>
-
->3) create_a_transaction API:
-
->https://github.com/Gongdai/Netbrain_REST_API_First_Regularization/blob/master/Netbrain_REST_API/API_test/Site%20API%20Design/STANDARD_formate_Create_a_Site_Transaction_API_Test.ipynb<br>
-
->4) site_transaction_heartbeat API:
-
->https://github.com/Gongdai/Netbrain_REST_API_First_Regularization/blob/master/Netbrain_REST_API/API_test/Site%20API%20Design/STANDARD_formate_Site_Transaction_Heartbeat_API_Test.ipynb<br>
-
->5) create_site API:
-
->https://github.com/Gongdai/Netbrain_REST_API_First_Regularization/blob/master/Netbrain_REST_API/API_test/Site%20API%20Design/STANDARD_formate_Create_Site_API_Test.ipynb<br>
-
->6) create_a_leaf_site API:
-
->https://github.com/Gongdai/Netbrain_REST_API_First_Regularization/blob/master/Netbrain_REST_API/API_test/Site%20API%20Design/STANDARD_formate_Create_A_Leaf_Site_API_Test.ipynb<br>
-
->7) add_site_device API:
-
->https://github.com/Gongdai/Netbrain_REST_API_First_Regularization/blob/master/Netbrain_REST_API/API_test/Site%20API%20Design/STANDARD_formate_Add_Site_Devices_API_Test.ipynb<br>
-
->8) get_site_devices API:
-
->https://github.com/Gongdai/Netbrain_REST_API_First_Regularization/blob/master/Netbrain_REST_API/API_test/Site%20API%20Design/STANDARD_formate_Get_Site_Devices_API_Test.ipynb<br>
-
->9) replace_site_devices API:
-
->https://github.com/Gongdai/Netbrain_REST_API_First_Regularization/blob/master/Netbrain_REST_API/API_test/Site%20API%20Design/STANDARD_formate_Replace_Site_Devices_API_Test.ipynb<br>
-
->10) delete_a_site API:
-
->https://github.com/Gongdai/Netbrain_REST_API_First_Regularization/blob/master/Netbrain_REST_API/API_test/Site%20API%20Design/STANDARD_formate_Delete_A_Site_API_Test.ipynb<br>
-
->11) commit_Site_Transaction API:
-
->https://github.com/Gongdai/Netbrain_REST_API_First_Regularization/blob/master/Netbrain_REST_API/API_test/Site%20API%20Design/STANDARD_formate_Commit_Site_Transaction_API_Test.ipynb
-
-
-```python
-
-```

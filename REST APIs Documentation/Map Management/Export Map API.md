@@ -105,7 +105,7 @@ try:
         map_data = result["fileData"]
         path="c:\\...\\map.xmap" #provide the path you want to export the map.
         with open(path,"wb") as ff:
-            ff.write(base64.b64decode(map_data)
+            ff.write(base64.b64decode(map_data))
         print (result)
     elif response.status_code != 200:
         print ("Export map failed! - " + str(response.text))

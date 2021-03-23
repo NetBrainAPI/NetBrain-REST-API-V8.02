@@ -82,7 +82,7 @@ Response
 ***Note: Error Code clarification***
 
 | **Code** | **Message**                                |
-|------------------------------------|----------|----------|
+|------------------------------------|----------|
 | 790200 | Success.|
 | 791000 | The runbook_id or ticket_id is required. |
 | 791006 | The Change Management runbook is not found. |
@@ -106,12 +106,6 @@ Response
     "statusDescription" : "Success"
 }
 ```
-
-
-      File "<ipython-input-2-16544f92b52d>", line 8
-        "statusCode" : "790200",
-                     ^
-    SyntaxError: invalid syntax
     
 
 
